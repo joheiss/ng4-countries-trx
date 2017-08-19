@@ -68,7 +68,7 @@
   </div>
   <div *ngIf="country?.population" class="jo-flx-row jo-det-blk">
     <div class="jo-det-lbl">{{ 'Population' | translate }}</div>
-    <div>{{country?.population | number}}</div>
+    <div>{{country?.population | number | translate }}</div>
   </div>
   <div *ngIf="country?.gini" class="jo-flx-row jo-det-blk">
     <div class="jo-det-lbl">{{ 'Gini Index' | translate }}</div>
@@ -157,7 +157,7 @@
   </div>
 </section>
 <section>
-  <a href="https://www.google.com/maps/place/{{country.latlng[0]}},{{country.latlng[1]}}/@{{country.latlng[0]}},{{country.latlng[1]}},6z"
+  <a href="https://www.google.com/maps/place/{{country.latlng[0]}},{{country.latlng[1]}}/@{{country.latlng[0]}},{{country.latlng[1]}},6z?language={{language}}"
      target="_blank"
      class="btn btn-lg btn-block btn-secondary">
     <span>{{ 'Open Google Maps' | translate }}</span>

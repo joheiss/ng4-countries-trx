@@ -42,6 +42,8 @@ export function translateLoaderFactory(http: HttpClient) {
   ],
   providers: [
     CountriesService,
+    { provide: LOCALE_ID,
+      useValue: window.navigator.language },
     {
       provide: APP_INITIALIZER,
       useFactory: startupServiceFactory,

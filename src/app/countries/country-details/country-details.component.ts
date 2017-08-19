@@ -29,7 +29,7 @@ export class CountryDetailsComponent implements OnInit {
         this.country = this.service.getCountryByCode(params.get('id'));
         this.translations = this.mapTranslationsToArray(this.country.translations);
       });
-    this.language = 'en'; // navigator.language;
+    this.language = window.navigator.language;
   }
 
   onBack() {
