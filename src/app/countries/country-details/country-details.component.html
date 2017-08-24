@@ -44,15 +44,15 @@
     </div>
     <div *ngIf="country?.latlng[0]" class="jo-flx-row jo-det-blk">
       <div class="jo-det-lbl">{{ 'Latitude' | translate }}</div>
-      <div>{{country?.latlng[0]}}</div>
+      <div>{{country?.latlng[0] | number}}</div>
     </div>
     <div *ngIf="country?.latlng[1]" class="jo-flx-row jo-det-blk">
       <div i18n class="jo-det-lbl">{{ 'Longitude' | translate }}</div>
-      <div>{{country?.latlng[1]}}</div>
+      <div>{{country?.latlng[1] | number}}</div>
     </div>
     <div *ngIf="country?.area" class="jo-flx-row jo-det-blk">
       <div i18n class="jo-det-lbl">{{ 'Land Area' | translate }}</div>
-      <div>{{country?.area | number}}</div>
+      <div>{{country?.area | number}} km<sup>2</sup></div>
     </div>
     <div *ngIf="country?.timezones && country?.timezones.length === 1" class="jo-flx-row jo-det-blk">
       <div class="jo-det-lbl">{{ 'Timezone' | translate }}</div>
@@ -69,7 +69,7 @@
     </div>
     <div *ngIf="country?.population" class="jo-flx-row jo-det-blk">
       <div class="jo-det-lbl">{{ 'Population' | translate }}</div>
-      <div>{{country?.population | number | translate }}</div>
+      <div>{{country?.population | number}}</div>
     </div>
     <div *ngIf="country?.gini" class="jo-flx-row jo-det-blk">
       <div class="jo-det-lbl">{{ 'Gini Index' | translate }}</div>

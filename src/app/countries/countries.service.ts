@@ -53,7 +53,7 @@ export class CountriesService {
   load(): Promise<any> {
 
     this.translate.setDefaultLang('en');
-    this.translate.use(window.navigator.language);
+    this.translate.use(window.navigator.language.substring(0, 2));
     console.log('CURRENT LANGUAGE: ', this.translate.currentLang);
 
     this._countries = null;

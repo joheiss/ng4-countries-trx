@@ -31,6 +31,7 @@ export class CountryDetailsComponent implements OnInit {
     this.route.paramMap
       .subscribe(params => {
         this.country = this.service.getCountryByCode(params.get('id'));
+        console.log('COUNTRY: ', this.country);
         this.translations = this.mapTranslationsToArray(this.country.translations);
       });
     this.language = window.navigator.language.substring(0, 2);
