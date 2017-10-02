@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {environment} from '../../environments/environment';
 import {navbarItems} from './navbar.items';
 
@@ -15,6 +15,7 @@ export class NavbarComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
     if (!environment.production) {
       this.envText = `DEVELOPMENT (${environment.dataSource})`;
     }

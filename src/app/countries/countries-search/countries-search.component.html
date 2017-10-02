@@ -1,3 +1,4 @@
+<!--
 <div class="input-group">
   <span class="input-group-addon" id="basic-addon1"><i class="fa fa-search"></i></span>
   <input type="text"
@@ -7,8 +8,67 @@
          placeholder="{{ 'Search' | translate }}"
          aria-describedby="basic-addon1">
 </div>
+-->
+<md-input-container>
+  <md-icon mdPrefix>search</md-icon>
+  <input type="search" mdInput
+         (input)="onInput($event.target.value)"
+         value="{{searchCriteria.term}}">
+</md-input-container>
 
-<div class="btn-group jo-flx-row"> <!-- data-toggle="buttons" -->
+<md-chip-list>
+  <md-chip
+    #africa
+    id="africa"
+    [selected]="searchCriteria.africa"
+    (click)="onToggle(africa)">
+    {{'Africa' | translate}}
+  </md-chip>
+  <md-chip
+    #america
+    id="america"
+    [selected]="searchCriteria.america"
+    (click)="onToggle(america)">
+    {{'America' | translate}}
+  </md-chip>
+  <md-chip
+    #antarctica
+    id="antarctica"
+    [selected]="searchCriteria.antarctica"
+    (click)="onToggle(antarctica)">
+    {{'Antarctica' | translate}}
+  </md-chip>
+  <md-chip
+    #asia
+    id="asia"
+    [selected]="searchCriteria.asia"
+    (click)="onToggle(asia)">
+    {{'Asia' | translate}}
+  </md-chip>
+  <md-chip
+    #australia
+    id="australia"
+    [selected]="searchCriteria.australia"
+    (click)="onToggle(australia)">
+    {{'Australia' | translate}}
+  </md-chip>
+  <md-chip
+    #europe
+    id="europe"
+    [selected]="searchCriteria.europe"
+    (click)="onToggle(europe)">
+    {{'Europe' | translate}}
+  </md-chip>
+  <md-chip
+    #none
+    id="none"
+    [selected]="searchCriteria.none"
+    (click)="onToggle(none)">
+    {{'None' | translate}}
+  </md-chip>
+</md-chip-list>
+<!--
+<div class="btn-group jo-flx-row">
   <label class="btn btn-secondary" [class.active]="searchCriteria.africa"
          (click)="onToggle(africa)">
     <input type="checkbox" [checked]="searchCriteria.africa" id="africa" #africa>
@@ -45,4 +105,5 @@
     <span>{{'None' | translate}}</span>
   </label>
 </div>
+-->
 

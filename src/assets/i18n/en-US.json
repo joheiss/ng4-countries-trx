@@ -467,6 +467,7 @@
   "COUNTRY_KAZ": "Kazakhstan",
   "COUNTRY_KEN": "Kenya",
   "COUNTRY_KIR": "Kiribati",
+  "COUNTRY_KOS": "Kosovo",
   "COUNTRY_KWT": "Kuwait",
   "COUNTRY_KGZ": "Kyrgyzstan",
   "COUNTRY_LAO": "Lao People's Democratic Republic",
@@ -529,7 +530,6 @@
   "COUNTRY_PRT": "Portugal",
   "COUNTRY_PRI": "Puerto Rico",
   "COUNTRY_QAT": "Qatar",
-  "COUNTRY_KOS": "Republic of Kosovo",
   "COUNTRY_REU": "Réunion",
   "COUNTRY_ROU": "Romania",
   "COUNTRY_RUS": "Russian Federation",
@@ -1067,5 +1067,6 @@
   "DEMONYM_Wallis and Futuna Islander": "Wallis and Futuna Islander",
   "DEMONYM_Yemeni": "Yemeni",
   "DEMONYM_Zambian": "Zambian",
-  "DEMONYM_Zimbabwean": "Zimbabwean"
+  "DEMONYM_Zimbabwean": "Zimbabwean",
+  "ERR_SERVICE_NOT_AVAIL": "Service is currently not available. Please try later again."
 }

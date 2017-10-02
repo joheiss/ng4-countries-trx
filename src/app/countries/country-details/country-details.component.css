@@ -67,6 +67,12 @@ jo-det-blk.jo-det-zip div {
   font-weight: bold;
 }
 
+.jo-btn-block {
+  width: 100%;
+  margin-bottom: 10px;
+  text-decoration: none;
+}
+
 @media screen and (max-width: calc(382px - 1px)) {
   .jo-det-blk:nth-of-type(1n) {
     background-color: inherit;

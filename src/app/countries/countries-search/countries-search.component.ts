@@ -32,7 +32,7 @@ export class CountriesSearchComponent implements OnInit {
     this.search$.next(this.searchCriteria);
   }
   onToggle(checkbox: HTMLInputElement) {
-
+    console.log('Chip toggle: ', checkbox);
     this.searchCriteria[checkbox.id] = !this.searchCriteria[checkbox.id];
     this.search$.next(this.searchCriteria);
   }

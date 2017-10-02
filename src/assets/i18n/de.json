@@ -467,6 +467,7 @@
   "COUNTRY_KAZ": "Kasachstan",
   "COUNTRY_KEN": "Kenia",
   "COUNTRY_KIR": "Kiribati",
+  "COUNTRY_KOS": "Kosovo",
   "COUNTRY_KWT": "Kuwait",
   "COUNTRY_KGZ": "Kirgisistan",
   "COUNTRY_LAO": "Laos",
@@ -529,7 +530,6 @@
   "COUNTRY_PRT": "Portugal",
   "COUNTRY_PRI": "Puerto Rico",
   "COUNTRY_QAT": "Katar",
-  "COUNTRY_KOS": "null",
   "COUNTRY_REU": "Réunion",
   "COUNTRY_ROU": "Rumänien",
   "COUNTRY_RUS": "Russland",
@@ -550,7 +550,7 @@
   "COUNTRY_SYC": "Seychellen",
   "COUNTRY_SLE": "Sierra Leone",
   "COUNTRY_SGP": "Singapur",
-  "COUNTRY_SXM": "null",
+  "COUNTRY_SXM": "Sint Maarten",
   "COUNTRY_SVK": "Slowakei",
   "COUNTRY_SVN": "Slowenien",
   "COUNTRY_SLB": "Salomonen",
@@ -849,7 +849,7 @@
   "DEMONYM_Andorran": "Andorraner",
   "DEMONYM_Angolan": "Angolaner",
   "DEMONYM_Anguillian": "Anguillianer",
-  "DEMONYM_Antiguan, Barbudan": "Antiguaner, Barbadier",
+  "DEMONYM_Antiguan, Barbudan": "Antiguaner, Barbuder",
   "DEMONYM_Argentinean": "Argentinier",
   "DEMONYM_Armenian": "Armenier",
   "DEMONYM_Aruban": "Arubaner",
@@ -1067,5 +1067,6 @@
   "DEMONYM_Wallis and Futuna Islander": "Wallis und Futuna Insulaner",
   "DEMONYM_Yemeni": "Jemenit",
   "DEMONYM_Zambian": "Sambier",
-  "DEMONYM_Zimbabwean": "Simbabwer"
+  "DEMONYM_Zimbabwean": "Simbabwer",
+  "ERR_SERVICE_NOT_AVAIL": "Der Dienst ist zur Zeit nicht verfügbar. Bitte versuchen Sie es später erneut."
 }

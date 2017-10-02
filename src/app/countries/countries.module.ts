@@ -9,11 +9,20 @@ import {ZippyModule} from '../zippy/zippy.module';
 import {SharedModule} from '../shared/shared.module';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MdButtonModule, MdInputModule} from '@angular/material';
+import {MdIconModule} from '@angular/material';
+import {MdChipsModule} from '@angular/material';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
     BrowserAnimationsModule,
+    MdInputModule,
+    MdIconModule,
+    MdChipsModule,
+    MdButtonModule,
     HttpClientModule,
     SharedModule,
     ZippyModule

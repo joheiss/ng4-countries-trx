@@ -10,7 +10,7 @@ import {ErrorComponent} from './error/error.component';
 import {SharedModule} from './shared/shared.module';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import {TranslateLoader, TranslateModule, TranslateService} from '@ngx-translate/core';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 
 export function startupServiceFactory(startupService: CountriesService): Function {
   return () => startupService.load();
