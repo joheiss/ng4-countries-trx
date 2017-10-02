@@ -1,5 +1,4 @@
 import {Injectable} from '@angular/core';
-import {Http} from '@angular/http';
 import {Country, SearchCriteria} from './country';
 import {Observable} from 'rxjs/Observable';
 import {ReplaySubject} from 'rxjs/ReplaySubject';
@@ -13,6 +12,7 @@ import {cloneDeep, find, isEqual} from 'lodash';
 import {COUNTRIES} from '../../data/countries-data';
 import {environment} from '../../environments/environment';
 import {TranslateService} from '@ngx-translate/core';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable()
 export class CountriesService {
@@ -26,7 +26,7 @@ export class CountriesService {
   private _emptyCriteria;
   private _searchCriteria;
 
-  constructor(private http: Http,
+  constructor(private http: HttpClient,
               private translate: TranslateService) {
 
     this._emptyCriteria = new SearchCriteria();
@@ -53,7 +53,7 @@ export class CountriesService {
   load(): Promise<any> {
 
     this.translate.setDefaultLang('en');
-    this.translate.use(window.navigator.language);
+    this.translate.use(window.navigator.language.substring(0, 2));
     console.log('CURRENT LANGUAGE: ', this.translate.currentLang);
 
     this._countries = null;
@@ -76,7 +76,6 @@ export class CountriesService {
             country['searchField'] = this.prepareSearchField(country);
             return country;
           });
-          console.log('COUNTRIES: ', data);
           this._countries = data;
           this.loadSubjects(data);
         }
@@ -172,9 +171,8 @@ export class CountriesService {
 
   private loadCountries(): Observable<Country[]> {
 
-    return this.http.get('https://restcountries.eu/rest/v2/all')
+    return this.http.get<Country[]>('https://restcountries.eu/rest/v2/all')
       .retry(3)
-      .map(response => response.json())
       .map(response => response.map(item => {
         item.region = item.region || 'None';
         return item;
@@ -213,7 +211,6 @@ export class CountriesService {
     special = special.replace(/\u00df/g, 'ss');
 
     if (searchField.localeCompare(special)) {
-      console.log('SPECIAL: ', special);
       searchField = searchField + ' ' + special;
     }
     return country.alpha3Code.toLocaleLowerCase() + ' ' + searchField;

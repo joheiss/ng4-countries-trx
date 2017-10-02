@@ -5,11 +5,15 @@ import {CountriesService} from '../countries.service';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/do';
 import {Location} from '@angular/common';
+import {slideLeftRight} from '../../shared/animations';
 
 @Component({
   selector: 'jo-country-details',
   templateUrl: './country-details.component.html',
-  styleUrls: ['./country-details.component.css']
+  styleUrls: ['./country-details.component.css'],
+  animations: [
+    slideLeftRight
+  ]
 })
 export class CountryDetailsComponent implements OnInit {
 
@@ -27,9 +31,10 @@ export class CountryDetailsComponent implements OnInit {
     this.route.paramMap
       .subscribe(params => {
         this.country = this.service.getCountryByCode(params.get('id'));
+        console.log('COUNTRY: ', this.country);
         this.translations = this.mapTranslationsToArray(this.country.translations);
       });
-    this.language = window.navigator.language;
+    this.language = window.navigator.language.substring(0, 2);
   }
 
   onBack() {

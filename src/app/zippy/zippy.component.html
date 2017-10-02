@@ -13,7 +13,7 @@
         >
     </span>
     </div>
-    <div *ngIf="isExpanded" class="jo-zippy-body">
+    <div @slideUpDown *ngIf="isExpanded" class="jo-zippy-body">
         <ng-content></ng-content>
     </div>
 </div>

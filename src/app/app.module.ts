@@ -6,7 +6,7 @@ import {AppComponent} from './app.component';
 import {NavbarComponent} from './navbar/navbar.component';
 import {AppRoutingModule} from './app-routing.module';
 import {CountriesService} from './countries/countries.service';
-import { ErrorComponent } from './error/error.component';
+import {ErrorComponent} from './error/error.component';
 import {SharedModule} from './shared/shared.module';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
@@ -18,6 +18,21 @@ export function startupServiceFactory(startupService: CountriesService): Functio
 
 export function translateLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
+
+export function localeIdFactory() {
+
+  const defaultLocales = [
+    {language: 'de', locale: 'de-DE'},
+    {language: 'en', locale: 'en-US'}
+    // {language: 'fr', locale: 'fr-FR'}
+  ];
+
+  if (window.navigator.language && window.navigator.language.length > 3) {
+    return window.navigator.language;
+  }
+
+  return (defaultLocales.find(loc => loc.language === window.navigator.language) || defaultLocales[1]).locale;
 }
 
 @NgModule({
@@ -42,8 +57,10 @@ export function translateLoaderFactory(http: HttpClient) {
   ],
   providers: [
     CountriesService,
-    { provide: LOCALE_ID,
-      useValue: window.navigator.language },
+    {
+      provide: LOCALE_ID,
+      useFactory: localeIdFactory
+    },
     {
       provide: APP_INITIALIZER,
       useFactory: startupServiceFactory,
@@ -53,4 +70,5 @@ export function translateLoaderFactory(http: HttpClient) {
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
