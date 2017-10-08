@@ -5,7 +5,7 @@
 }
 
 .jo-country-item {
-    width: 240px;
+    width: 300px;
     margin: 10px 10px;
 }
 
@@ -16,4 +16,45 @@
 .jo-country-item:hover {
     transition: 400ms ease-out;
     transform: scale(1.1);
+}
+
+@media screen and (max-width: calc(322px - 1px)) {
+  .jo-country-item {
+    width: 95vw;
+  }
+}
+
+@media screen and (min-width: 322px) {
+  .jo-country-item {
+    width: 95vw;
+  }
+}
+
+@media screen and (min-width: 642px) {
+  .jo-country-item {
+    width: 43vw;
+  }
+}
+@media screen and (min-width: 962px) {
+  .jo-country-item {
+    width: 29vw;
+  }
+}
+
+@media screen and (min-width: 1282px) {
+  .jo-country-item {
+    width: 22vw;
+  }
+}
+
+@media screen and (min-width: 1602px) {
+  .jo-country-item {
+    width: 18vw;
+  }
+}
+
+@media screen and (min-width: 1922px) {
+  .jo-country-item {
+    width: 15vw;
+  }
 }

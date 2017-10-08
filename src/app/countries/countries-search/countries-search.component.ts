@@ -3,6 +3,7 @@ import {Subject} from 'rxjs/Subject';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import {SearchCriteria} from '../country';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'jo-countries-search',
@@ -16,7 +17,7 @@ export class CountriesSearchComponent implements OnInit {
 
   search$ = new Subject<SearchCriteria>();
 
-  constructor() {
+  constructor(private router: Router) {
     this.search$
       .debounceTime(300)
       // .distinctUntilChanged()
@@ -31,9 +32,9 @@ export class CountriesSearchComponent implements OnInit {
     this.searchCriteria.term = term.toLocaleLowerCase();
     this.search$.next(this.searchCriteria);
   }
-  onToggle(checkbox: HTMLInputElement) {
-    console.log('Chip toggle: ', checkbox);
-    this.searchCriteria[checkbox.id] = !this.searchCriteria[checkbox.id];
-    this.search$.next(this.searchCriteria);
+
+  onSettings() {
+    this.router.navigate(['settings']);
   }
+
 }

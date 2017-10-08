@@ -9,20 +9,24 @@ import {ZippyModule} from '../zippy/zippy.module';
 import {SharedModule} from '../shared/shared.module';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MdButtonModule, MdInputModule} from '@angular/material';
+import {MdButtonModule, MdCardModule, MdCheckboxModule, MdInputModule, MdRadioModule} from '@angular/material';
 import {MdIconModule} from '@angular/material';
 import {MdChipsModule} from '@angular/material';
 import {FormsModule} from '@angular/forms';
+import {SettingsComponent} from '../settings/settings.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     BrowserAnimationsModule,
+    MdCardModule,
+    MdCheckboxModule,
     MdInputModule,
     MdIconModule,
     MdChipsModule,
     MdButtonModule,
+    MdRadioModule,
     HttpClientModule,
     SharedModule,
     ZippyModule
@@ -32,7 +36,8 @@ import {FormsModule} from '@angular/forms';
     CountryListComponent,
     CountryListItemComponent,
     CountryDetailsComponent,
-    CountriesSearchComponent
+    CountriesSearchComponent,
+    SettingsComponent
   ],
   providers: [
   ],

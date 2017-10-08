@@ -1,109 +1,21 @@
-<!--
-<div class="input-group">
-  <span class="input-group-addon" id="basic-addon1"><i class="fa fa-search"></i></span>
-  <input type="text"
-         (input)="onInput($event.target.value)"
-         value="{{searchCriteria.term}}"
-         class="form-control"
-         placeholder="{{ 'Search' | translate }}"
-         aria-describedby="basic-addon1">
+<div class="jo-flx-row jo-det-bdy">
+  <div class="jo-sea-blk">
+    <md-input-container>
+      <md-icon mdPrefix>search</md-icon>
+      <input type="search" mdInput
+             (input)="onInput($event.target.value)"
+             value="{{searchCriteria.term}}">
+    </md-input-container>
+  </div>
+  <!--
+  <div class="jo-sea-blk">
+    <a
+      md-icon-button
+      (click)="onSettings()"
+      class="jo-btn-block">
+      <md-icon>settings</md-icon>
+      <span>{{'Current Settings' | translate}}</span>
+    </a>
+  </div>
+  -->
 </div>
--->
-<md-input-container>
-  <md-icon mdPrefix>search</md-icon>
-  <input type="search" mdInput
-         (input)="onInput($event.target.value)"
-         value="{{searchCriteria.term}}">
-</md-input-container>
-
-<md-chip-list>
-  <md-chip
-    #africa
-    id="africa"
-    [selected]="searchCriteria.africa"
-    (click)="onToggle(africa)">
-    {{'Africa' | translate}}
-  </md-chip>
-  <md-chip
-    #america
-    id="america"
-    [selected]="searchCriteria.america"
-    (click)="onToggle(america)">
-    {{'America' | translate}}
-  </md-chip>
-  <md-chip
-    #antarctica
-    id="antarctica"
-    [selected]="searchCriteria.antarctica"
-    (click)="onToggle(antarctica)">
-    {{'Antarctica' | translate}}
-  </md-chip>
-  <md-chip
-    #asia
-    id="asia"
-    [selected]="searchCriteria.asia"
-    (click)="onToggle(asia)">
-    {{'Asia' | translate}}
-  </md-chip>
-  <md-chip
-    #australia
-    id="australia"
-    [selected]="searchCriteria.australia"
-    (click)="onToggle(australia)">
-    {{'Australia' | translate}}
-  </md-chip>
-  <md-chip
-    #europe
-    id="europe"
-    [selected]="searchCriteria.europe"
-    (click)="onToggle(europe)">
-    {{'Europe' | translate}}
-  </md-chip>
-  <md-chip
-    #none
-    id="none"
-    [selected]="searchCriteria.none"
-    (click)="onToggle(none)">
-    {{'None' | translate}}
-  </md-chip>
-</md-chip-list>
-<!--
-<div class="btn-group jo-flx-row">
-  <label class="btn btn-secondary" [class.active]="searchCriteria.africa"
-         (click)="onToggle(africa)">
-    <input type="checkbox" [checked]="searchCriteria.africa" id="africa" #africa>
-    <span>{{'Africa' | translate}}</span>
-  </label>
-  <label class="btn btn-secondary" [class.active]="searchCriteria.antarctica"
-         (click)="onToggle(antarctica)">
-    <input type="checkbox" [checked]="searchCriteria.antarctica" id="antarctica" #antarctica>
-    <span>{{'Antarctica' | translate}}</span>
-  </label>
-  <label class="btn btn-secondary" [class.active]="searchCriteria.asia"
-         (click)="onToggle(asia)">
-    <input type="checkbox" [checked]="searchCriteria.asia" id="asia" #asia>
-    <span>{{'Asia' | translate}}</span>
-  </label>
-  <label class="btn btn-secondary" [class.active]="searchCriteria.australia"
-         (click)="onToggle(australia)">
-    <input type="checkbox" [checked]="searchCriteria.australia" id="australia" #australia>
-    <span>{{'Australia' | translate}}</span>
-  </label>
-  <label class="btn btn-secondary" [class.active]="searchCriteria.america"
-         (click)="onToggle(america)">
-    <input type="checkbox" [checked]="searchCriteria.america" id="america" #america>
-    <span>{{'Amerika' | translate}}</span>
-  </label >
-  <label class="btn btn-secondary" [class.active]="searchCriteria.europe"
-         (click)="onToggle(europe)">
-    <input type="checkbox" [checked]="searchCriteria.europe" id="europe" #europe>
-    <span>{{'Europe' | translate}}</span>
-  </label>
-  <label class="btn btn-secondary" [class.active]="searchCriteria.none"
-         (click)="onToggle(none)">
-    <input type="checkbox" [checked]="searchCriteria.none" id="none" #none>
-    <span>{{'None' | translate}}</span>
-  </label>
-</div>
--->
-

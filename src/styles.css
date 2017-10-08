@@ -3,3 +3,38 @@
 
 @import "https://fonts.googleapis.com/icon?family=Material+Icons";
 @import "https://fonts.googleapis.com/css?family=Roboto:300,400,500";
+
+.jo-flx-row {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.jo-flx-col {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+}
+
+.jo-det-bdy {
+  /* align-items: flex-start; */
+  justify-content: flex-start;
+}
+
+.jo-det-blk {
+  justify-content: flex-start;
+  width: 320px;
+}
+
+.jo-det-blk div {
+  width: 50%; /*calc(50% - 10px); */
+  padding: 5px 5px;
+}
+
+.jo-det-blk div i {
+  align-self: flex-end;
+  float: right;
+}
+
+.jo-det-lbl {
+  font-weight: inherit;
+}

@@ -1,12 +1,8 @@
-md-chip {
-  cursor: pointer;
+md-input-container {
+  width: 100%;
 }
 
-md-chip:hover {
-  transform: scale(1.1);
-}
-
-.jo-flx-row {
-  display: flex;
-  flex-flow: row wrap;
+.jo-sea-blk {
+  width: 100%;
+  padding: 10px 10px;
 }

@@ -56,3 +56,9 @@ export class SearchCriteria {
               public europe: boolean = true,
               public none: boolean = true) { }
 }
+
+export class SortCriteria {
+
+  constructor(public fieldName: string = 'name',
+              public direction: string = 'asc') {}
+}

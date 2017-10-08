@@ -28,17 +28,27 @@
       "sizes": "144x144"
     },
     {
-      "src": "/assets/img/icons/android-icon-192x192.png",
+      "src": "/assets/img/icons/android-chrome-192x192.png",
       "type": "image/png",
       "sizes": "192x192"
+    },
+    {
+    "src": "/assets/img/icons/android-chrome-256x256.png",
+    "type": "image/png",
+    "sizes": "256x256"
+    },
+    {
+      "src": "/assets/img/icons/app-icon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
     }
   ],
-  "start_url": "/index.html",
+  "start_url": "/",
   "scope": ".",
   "display": "standalone",
   "orientation": "any",
   "background_color": "#fff",
-  "theme_color": "#3f51b5",
+  "theme_color": "#015762",
   "description": "A first PWA Angular Trial",
   "dir": "ltr",
   "lang": "de-DE"

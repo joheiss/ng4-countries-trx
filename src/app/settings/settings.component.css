@@ -1,0 +1,29 @@
+md-card {
+  margin-bottom: 10px;
+}
+
+h4 {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.jo-ord-blk {
+  justify-content: flex-start;
+  width: 320px;
+}
+
+.jo-ord-blk div {
+  width: 33.3333%; /*calc(50% - 10px); */
+  padding: 5px 5px;
+}
+
+.jo-ord-blk div i {
+  align-self: flex-end;
+  float: right;
+}
+
+.jo-btn-block {
+  width: 100%;
+  margin-bottom: 10px;
+  text-decoration: none;
+}

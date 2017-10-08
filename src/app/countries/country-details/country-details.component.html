@@ -160,20 +160,6 @@
     </div>
   </section>
   <section>
-    <!--
-    <a *ngIf="country.latlng[0] && country.latlng[1]"
-       href="https://www.google.com/maps/place/{{country.latlng[0]}},{{country.latlng[1]}}/@{{country.latlng[0]}},{{country.latlng[1]}},6z?language={{language}}"
-       target="_blank"
-       class="btn btn-lg btn-block btn-secondary">
-      <span>{{ 'Open Google Maps' | translate }}</span>
-    </a>
-    <a href="https://{{language}}.wikipedia.org/wiki/{{country.name}}"
-       target="_blank"
-       class="btn btn-lg btn-block btn-secondary">
-      <span>{{ 'Open Wikipedia' | translate }}</span>
-    </a>
-    <a (click)="onBack()" class="btn btn-lg btn-block btn-primary"><span>{{ 'Back' | translate }}</span></a>
-    -->
     <a *ngIf="country.latlng[0] && country.latlng[1]"
        md-raised-button
        href="https://www.google.com/maps/place/{{country.latlng[0]}},{{country.latlng[1]}}/@{{country.latlng[0]}},{{country.latlng[1]}},6z?language={{language}}"

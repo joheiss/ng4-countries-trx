@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Country, SearchCriteria} from './country';
+import {Country, SearchCriteria, SortCriteria} from './country';
 import {Observable} from 'rxjs/Observable';
 import {ReplaySubject} from 'rxjs/ReplaySubject';
 import 'rxjs/add/operator/do';
@@ -8,7 +8,7 @@ import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/retry';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/of';
-import {cloneDeep, find, isEqual} from 'lodash';
+import {cloneDeep, find, isEqual, orderBy} from 'lodash';
 import {COUNTRIES} from '../../data/countries-data';
 import {environment} from '../../environments/environment';
 import {TranslateService} from '@ngx-translate/core';
@@ -25,12 +25,14 @@ export class CountriesService {
 
   private _emptyCriteria;
   private _searchCriteria;
+  private _sortCriteria;
 
   constructor(private http: HttpClient,
               private translate: TranslateService) {
 
     this._emptyCriteria = new SearchCriteria();
     this._searchCriteria = new SearchCriteria();
+    this._sortCriteria = new SortCriteria();
   }
 
   get countries(): Country[] {
@@ -43,6 +45,10 @@ export class CountriesService {
 
   get searchCriteria(): SearchCriteria {
     return this._searchCriteria;
+  }
+
+  get sortCriteria(): SortCriteria {
+    return this._sortCriteria;
   }
 
   cleanup(): void {
@@ -76,8 +82,9 @@ export class CountriesService {
             country['searchField'] = this.prepareSearchField(country);
             return country;
           });
-          this._countries = data;
-          this.loadSubjects(data);
+          const sorted = this.sortCountries(data);
+          this._countries = sorted;
+          this.loadSubjects(sorted);
         }
       )
       .catch(err => Promise.resolve());
@@ -110,11 +117,16 @@ export class CountriesService {
     } else {
       this.filteredCountriesCount$.next(0);
     }
-    this.filteredCountries$.next(results);
+    this.filteredCountries$.next(this.sortCountries(results));
   }
 
   selectCountry(country: Country) {
     this._currentCountry = country;
+  }
+
+  setSearchAndSortCriteria(searchCriteria: SearchCriteria, sortCriteria: SortCriteria) {
+    this._sortCriteria = sortCriteria;
+    this.searchCountries(searchCriteria);
   }
 
   private fillContinentsForSearch(): string[] {
@@ -204,16 +216,38 @@ export class CountriesService {
     // prepare search field
     let searchField = (country.name + ' ' + country.nativeName).toLocaleLowerCase();
 
-    let special = searchField;
-    special = special.replace(/\u00e4/g, 'ae');
-    special = special.replace(/\u00f6/g, 'oe');
-    special = special.replace(/\u00fc/g, 'ue');
-    special = special.replace(/\u00df/g, 'ss');
+    const special = this.replaceSpecialCharacters(searchField);
 
     if (searchField.localeCompare(special)) {
       searchField = searchField + ' ' + special;
     }
     return country.alpha3Code.toLocaleLowerCase() + ' ' + searchField;
   }
+
+  private prepareSortField(field: any): any {
+
+    let value = field;
+
+    if (typeof field === 'string') {
+      value = this.replaceSpecialCharacters(value);
+    }
+
+    return value;
+  }
+
+  private replaceSpecialCharacters(value: string): string {
+    value = value.toLocaleLowerCase();
+    value = value.replace(/\u00e4/g, 'ae');
+    value = value.replace(/\u00f6/g, 'oe');
+    value = value.replace(/\u00fc/g, 'ue');
+    value = value.replace(/\u00df/g, 'ss');
+    value = value.replace(/\u00e5/g, 'a');
+    return value;
+  }
+
+  private sortCountries(data: Country[]): Country[] {
+    return orderBy(data, [ item => this.prepareSortField(item[this._sortCriteria.fieldName])], [this._sortCriteria.direction]);
+  }
+
 }
 

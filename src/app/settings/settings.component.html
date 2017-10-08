@@ -1,0 +1,69 @@
+<md-card>
+  <md-card-content>
+    <jo-zippy [title]="'Selections' | translate" class=" jo-det-zip">
+      <section class="jo-flx-row jo-det-bdy">
+        <div *ngFor="let selection of continentSelections"
+          class="jo-flx-row jo-det-blk">
+          <div class="jo-det-lbl">{{ selection.description | translate }}</div>
+          <div>
+            <md-checkbox
+              [id]="selection.name"
+              [checked]="searchCriteria[selection.name]"
+              (change)="onToggleContinent($event)">
+            </md-checkbox>
+          </div>
+        </div>
+      </section>
+    </jo-zippy>
+  </md-card-content>
+</md-card>
+
+<md-card>
+  <md-card-content>
+    <jo-zippy [title]="'Order By' | translate" class=" jo-det-zip">
+      <h4>Direction</h4>
+      <md-radio-group
+        [value]="sortCriteria.direction"
+        (change)="onToggleDirection($event)"
+        class="jo-flx-row jo-det-bdy">
+        <div class="jo-flx-row jo-det-blk">
+          <div class="jo-det-lbl">{{ 'Ascending' | translate }}</div>
+          <md-radio-button value="asc"></md-radio-button>
+        </div>
+        <div class="jo-flx-row jo-det-blk">
+          <div class="jo-det-lbl">{{ 'Descending' | translate }}</div>
+          <md-radio-button value="desc"></md-radio-button>
+        </div>
+      </md-radio-group>
+      <h4>Sort Criteria</h4>
+      <md-radio-group
+        [value]="sortCriteria.fieldName"
+        (change)="onToggleOrderBy($event)"
+        class="jo-flx-row jo-det-bdy">
+        <div
+          *ngFor="let option of orderByOptions"
+          class="jo-flx-row jo-det-blk">
+          <div class="jo-det-lbl">{{ option.description | translate }}</div>
+          <md-radio-button [value]="option.name"></md-radio-button>
+        </div>
+      </md-radio-group>
+    </jo-zippy>
+  </md-card-content>
+</md-card>
+
+<section>
+  <a
+    md-raised-button
+    color="primary"
+    (click)="onBack()"
+    class="jo-btn-block">
+    <span>{{ 'Back' | translate }}</span>
+  </a>
+  <a
+    md-raised-button
+    color="warn"
+    (click)="onCancel()"
+    class="jo-btn-block">
+    <span>{{ 'Cancel' | translate }}</span>
+  </a>
+</section>
