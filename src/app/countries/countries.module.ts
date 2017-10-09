@@ -9,9 +9,10 @@ import {ZippyModule} from '../zippy/zippy.module';
 import {SharedModule} from '../shared/shared.module';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MdButtonModule, MdCardModule, MdCheckboxModule, MdInputModule, MdRadioModule} from '@angular/material';
-import {MdIconModule} from '@angular/material';
-import {MdChipsModule} from '@angular/material';
+import {
+  MatButtonModule,
+  MatCardModule, MatCheckboxModule, MatChipsModule, MatInputModule, MatRadioModule, MatIconModule
+} from '@angular/material';
 import {FormsModule} from '@angular/forms';
 import {SettingsComponent} from '../settings/settings.component';
 
@@ -20,13 +21,12 @@ import {SettingsComponent} from '../settings/settings.component';
     CommonModule,
     FormsModule,
     BrowserAnimationsModule,
-    MdCardModule,
-    MdCheckboxModule,
-    MdInputModule,
-    MdIconModule,
-    MdChipsModule,
-    MdButtonModule,
-    MdRadioModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatInputModule,
+    MatIconModule,
+    MatButtonModule,
+    MatRadioModule,
     HttpClientModule,
     SharedModule,
     ZippyModule

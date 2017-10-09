@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {SearchCriteria, SortCriteria} from '../countries/country';
 import {CountriesService} from '../countries/countries.service';
 import {Location} from '@angular/common';
-import {MdCheckboxChange} from '@angular/material';
+import {MatCheckboxChange} from '@angular/material';
 
 @Component({
   selector: 'jo-settings',
@@ -52,7 +52,7 @@ export class SettingsComponent implements OnInit {
     this.location.back();
   }
 
-  onToggleContinent(event: MdCheckboxChange) {
+  onToggleContinent(event: MatCheckboxChange) {
     console.log('Toggle continent: ', event);
     this.searchCriteria[event.source.id] = event.checked;
   }

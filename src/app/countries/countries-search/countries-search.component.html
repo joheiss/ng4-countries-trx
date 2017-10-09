@@ -1,21 +1,10 @@
 <div class="jo-flx-row jo-det-bdy">
   <div class="jo-sea-blk">
-    <md-input-container>
-      <md-icon mdPrefix>search</md-icon>
-      <input type="search" mdInput
+    <mat-input-container>
+      <mat-icon matPrefix>search</mat-icon>
+      <input type="search" matInput
              (input)="onInput($event.target.value)"
              value="{{searchCriteria.term}}">
-    </md-input-container>
+    </mat-input-container>
   </div>
-  <!--
-  <div class="jo-sea-blk">
-    <a
-      md-icon-button
-      (click)="onSettings()"
-      class="jo-btn-block">
-      <md-icon>settings</md-icon>
-      <span>{{'Current Settings' | translate}}</span>
-    </a>
-  </div>
-  -->
 </div>

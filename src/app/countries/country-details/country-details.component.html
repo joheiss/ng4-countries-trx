@@ -161,21 +161,21 @@
   </section>
   <section>
     <a *ngIf="country.latlng[0] && country.latlng[1]"
-       md-raised-button
+       mat-raised-button
        href="https://www.google.com/maps/place/{{country.latlng[0]}},{{country.latlng[1]}}/@{{country.latlng[0]}},{{country.latlng[1]}},6z?language={{language}}"
        target="_blank"
        class="jo-btn-block">
       <span>{{ 'Open Google Maps' | translate }}</span>
     </a>
     <a
-      md-raised-button
+      mat-raised-button
       href="https://{{language}}.wikipedia.org/wiki/{{country.name}}"
       target="_blank"
       class="jo-btn-block">
       <span>{{ 'Open Wikipedia' | translate }}</span>
     </a>
     <a
-      md-raised-button
+      mat-raised-button
       color="primary"
       (click)="onBack()"
       class="jo-btn-block">
