@@ -3,38 +3,40 @@
 
 @import "https://fonts.googleapis.com/icon?family=Material+Icons";
 @import "https://fonts.googleapis.com/css?family=Roboto:300,400,500";
+@import "https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900";
+
+/* -- universal reset -- */
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+/* -- universal font definitions */
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 100%;
+  line-height: 1.7;
+  color: #777;
+
+  box-sizing: border-box;
+}
 
 .jo-flx-row {
   display: flex;
   flex-flow: row wrap;
+
 }
 
 .jo-flx-col {
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start;
-}
-
-.jo-det-bdy {
-  /* align-items: flex-start; */
-  justify-content: flex-start;
-}
-
-.jo-det-blk {
-  justify-content: flex-start;
-  width: 320px;
-}
-
-.jo-det-blk div {
-  width: 50%; /*calc(50% - 10px); */
-  padding: 5px 5px;
-}
-
-.jo-det-blk div i {
-  align-self: flex-end;
-  float: right;
-}
-
-.jo-det-lbl {
-  font-weight: inherit;
 }

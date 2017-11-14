@@ -2,6 +2,11 @@
     <img [src]="country.flag">
     <div>{{ 'COUNTRY_' + country.alpha3Code | translate}} ({{country.alpha3Code}})</div>
 </div>
+<div
+  *ngIf="orderBy && orderBy?.fieldName !== 'name'"
+  class="jo-country-orderby">
+  {{ getOrderByDescription(orderBy.fieldName) | translate }}: {{ getSortValue(orderBy.fieldName)}}
+</div>
 
 
 

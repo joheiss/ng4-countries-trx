@@ -3,23 +3,27 @@
 }
 
 img {
-    width: 40px;
-    height: 32px;
-    margin-right: 10px;
+    width: 4rem;
+    height: 3.2rem;
+    margin-right: 1rem;
 }
 
 img:hover {
     transition: 400ms ease-out;
-    transform: scale(1.2);
+    transform: scaleX(1.2) scaleY(1.4);
 }
 
 .jo-country-cell {
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-start;
-    padding: 10px 10px;
+    padding: 1rem 1rem;
 }
 
-
+.jo-country-orderby {
+  font-size: 75%;
+  font-weight: normal;
+  margin-left: 6rem;
+}
 
 

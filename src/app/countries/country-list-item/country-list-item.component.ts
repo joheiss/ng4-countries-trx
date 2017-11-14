@@ -1,5 +1,8 @@
 import {Component, Input} from '@angular/core';
-import {Country} from '../country';
+import {Country, SortCriteria} from '../country';
+import {CountriesService} from '../countries.service';
+import {find} from 'lodash';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'jo-country-list-item',
@@ -8,5 +11,24 @@ import {Country} from '../country';
 })
 export class CountryListItemComponent {
 
-    @Input('country') country: Country;
+  @Input('country') country: Country;
+  @Input('orderBy') orderBy: SortCriteria;
+
+  constructor(private service: CountriesService,
+              private translate: TranslateService) {}
+
+  getOrderByDescription(name: string): string {
+    const found = find(this.service.orderByOptions, option => option.name === name);
+    if (found) {
+      return found.description;
+    }
+    return '';
+  }
+
+  getSortValue(name: string): string {
+    if (typeof this.country[name] === 'number') {
+      return this.country[name].toLocaleString(this.translate.currentLang);
+    }
+    return this.country[name];
+  }
 }

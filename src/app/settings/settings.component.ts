@@ -3,6 +3,7 @@ import {SearchCriteria, SortCriteria} from '../countries/country';
 import {CountriesService} from '../countries/countries.service';
 import {Location} from '@angular/common';
 import {MatCheckboxChange} from '@angular/material';
+import { find } from 'lodash';
 
 @Component({
   selector: 'jo-settings',
@@ -11,27 +12,8 @@ import {MatCheckboxChange} from '@angular/material';
 })
 export class SettingsComponent implements OnInit {
 
-  continentSelections = [
-    { name: 'africa', description: 'Africa' },
-    { name: 'america', description: 'Americas' },
-    { name: 'asia', description: 'Asia' },
-    { name: 'australia', description: 'Australia' },
-    { name: 'europe', description: 'Europe' },
-    { name: 'antarctica', description: 'Antarctica' },
-    { name: 'none', description: 'None' }
-  ];
-
-  orderByOptions = [
-    { name: 'name', description: 'Country Name' },
-    { name: 'alpha3Code', description: 'ISO Code' },
-    { name: 'region', description: 'Region' },
-    { name: 'subregion', description: 'Sub Region' },
-    { name: 'population', description: 'Population' },
-    { name: 'area', description: 'Area Size' },
-    { name: 'gini', description: 'Gini Index' },
-    { name: 'numericCode', description: 'Numeric Code' },
-  ];
-
+  continentSelections: any;
+  orderByOptions: any;
   searchCriteria: SearchCriteria;
   sortCriteria: SortCriteria;
 
@@ -41,6 +23,8 @@ export class SettingsComponent implements OnInit {
   ngOnInit() {
     this.searchCriteria = this.service.searchCriteria;
     this.sortCriteria = this.service.sortCriteria;
+    this.continentSelections = this.service.continentSelections;
+    this.orderByOptions = this.service.orderByOptions;
   }
 
   onBack() {
@@ -64,4 +48,5 @@ export class SettingsComponent implements OnInit {
   onToggleOrderBy(event) {
     this.sortCriteria.fieldName = event.value;
   }
+
 }

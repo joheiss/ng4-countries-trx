@@ -5,6 +5,7 @@
   </jo-countries-search>
   <jo-country-list [countries]="countries$"
                    [count]="count$"
+                   [orderBy]="sortCriteria"
                    (selected)="onSelected($event)">
   </jo-country-list>
 </div>

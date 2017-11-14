@@ -27,6 +27,27 @@ export class CountriesService {
   private _searchCriteria;
   private _sortCriteria;
 
+  private _continentSelections = [
+    { name: 'africa', description: 'Africa' },
+    { name: 'america', description: 'Americas' },
+    { name: 'asia', description: 'Asia' },
+    { name: 'australia', description: 'Australia' },
+    { name: 'europe', description: 'Europe' },
+    { name: 'antarctica', description: 'Antarctica' },
+    { name: 'none', description: 'None' }
+  ];
+
+  private _orderByOptions = [
+    { name: 'name', description: 'Country Name' },
+    { name: 'alpha3Code', description: 'ISO Code' },
+    { name: 'region', description: 'Region' },
+    { name: 'subregion', description: 'Sub Region' },
+    { name: 'population', description: 'Population' },
+    { name: 'area', description: 'Area Size' },
+    { name: 'gini', description: 'Gini Index' },
+    { name: 'numericCode', description: 'Numeric Code' },
+  ];
+
   constructor(private http: HttpClient,
               private translate: TranslateService) {
 
@@ -35,12 +56,20 @@ export class CountriesService {
     this._sortCriteria = new SortCriteria();
   }
 
+  get continentSelections() {
+    return this._continentSelections;
+  }
+
   get countries(): Country[] {
     return this._countries;
   }
 
   get currentCountry(): Country {
     return this._currentCountry;
+  }
+
+  get orderByOptions() {
+    return this._orderByOptions;
   }
 
   get searchCriteria(): SearchCriteria {
@@ -65,6 +94,7 @@ export class CountriesService {
     this._countries = null;
 
     return this.loadCountries()
+    // return this.readCountries()
       .toPromise()
       .then(data => {
           const language = this.translate.currentLang;
@@ -179,6 +209,24 @@ export class CountriesService {
   private findCountry(code): Country {
 
     return find(this._countries, country => country.alpha3Code === code);
+  }
+
+  private readCountries(): Observable<Country[]> {
+
+    return this.http.get<Country[]>('./assets/data/countries.json')
+      .map(response => response.map(item => {
+        item.region = item.region || 'None';
+        return item;
+      }))
+      .catch(err => {
+        // take from local data store in case rest service is not available
+        return Observable.of(COUNTRIES)
+          .do(() => environment.dataSource = 'offline')
+          .map(response => response.map(item => {
+            item.region = item.region || 'None';
+            return item;
+          }));
+      });
   }
 
   private loadCountries(): Observable<Country[]> {

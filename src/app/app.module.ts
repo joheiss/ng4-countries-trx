@@ -29,9 +29,11 @@ export function localeIdFactory() {
   ];
 
   if (window.navigator.language && window.navigator.language.length > 3) {
+    console.log('Window Navigator Language: ', window.navigator.language);
     return window.navigator.language;
   }
 
+  console.log('Default language: ', defaultLocales.find(loc => loc.language === window.navigator.language));
   return (defaultLocales.find(loc => loc.language === window.navigator.language) || defaultLocales[1]).locale;
 }
 

@@ -1,2 +1,63 @@
 {
+  "routing": {
+    "index": "/index.html",
+    "routes": {
+      "/": { "match": "exact" },
+      "/countries": { "match": "exact" },
+      "/settings": { "match": "exact" }
+    }
+  },
+  "external": {
+    "urls": [
+      {
+        "url": "https://fonts.googleapis.com/icon?family=Material+Icons"
+      },
+      {
+        "url": "https://fonts.googleapis.com/css?family=Roboto:300,400,500"
+      }
+    ]
+  },
+  "dynamic": {
+    "group": [
+      {
+        "name": "countries",
+        "urls": {
+            "https://restcountries.eu/rest": { "match": "prefix" }
+        },
+        "cache": {
+          "optimizeFor": "performance",
+          "strategy": "lru",
+          "maxAgeMs": 3600000,
+          "maxEntries": 10,
+          "networkTimeoutMs": 1000
+        }
+      },
+      {
+        "name": "images",
+        "urls": {
+          "https://restcountries.eu/data": { "match": "prefix" }
+        },
+        "cache": {
+          "optimizeFor": "performance",
+          "strategy": "lru",
+          "maxAgeMs": 3600000,
+          "maxEntries": 300,
+          "networkTimeoutMs": 1000
+        }
+      },
+      {
+        "name": "fonts",
+        "urls": {
+          "https://fonts.gstatic.com": { "match": "prefix" }
+        },
+        "cache": {
+          "optimizeFor": "performance",
+          "strategy": "lru",
+          "maxAgeMs": 3600000,
+          "maxEntries": 10,
+          "networkTimeoutMs": 1000
+        }
+      }
+    ]
+  }
 }

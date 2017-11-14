@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Country, SearchCriteria} from './country';
+import {Country, SearchCriteria, SortCriteria} from './country';
 import {CountriesService} from './countries.service';
 import {Observable} from 'rxjs/Observable';
 import {slideRightLeft} from '../shared/animations';
@@ -18,6 +18,7 @@ export class CountriesComponent implements OnInit {
   count$: Observable<number>;
   selectedCountry: Country;
   searchCriteria: SearchCriteria;
+  sortCriteria: SortCriteria;
 
   constructor(private service: CountriesService) { }
 
@@ -26,6 +27,7 @@ export class CountriesComponent implements OnInit {
     this.count$ = this.service.filteredCountriesCount$;
     this.selectedCountry = this.service.currentCountry;
     this.searchCriteria = this.service.searchCriteria;
+    this.sortCriteria = this.service.sortCriteria;
   }
 
   onSearch(criteria): void {

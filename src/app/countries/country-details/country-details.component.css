@@ -1,31 +1,21 @@
 section {
   /* border: $border-width solid black; */
-  padding: 30px 30px;
+  /* padding: 3rem 3rem; */
+  padding: 3rem 0;
 }
 
 img {
-  width: 80px;
-  height: 64px;
+  width: 8rem;
+  height: 6.4rem;
 }
 
 h1 {
   font-size: 150%;
 }
 
-.jo-flx-row {
-  display: flex;
-  flex-flow: row wrap;
-
-}
-
-.jo-flx-col {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: flex-start;
-}
-
 .jo-det-hdr {
   background-color: #eeeeee;
+  padding: 3rem 3rem;
   justify-content: space-between;
   align-items: center;
 }
@@ -37,12 +27,12 @@ h1 {
 
 .jo-det-blk {
   justify-content: flex-start;
-  width: 320px;
+  width: 32rem;
 }
 
 .jo-det-blk div {
   width: 50%; /*calc(50% - 10px); */
-  padding: 10px 10px;
+  padding: 1rem 0.5rem;
 }
 
 .jo-det-blk div i {
@@ -69,11 +59,11 @@ jo-det-blk.jo-det-zip div {
 
 .jo-btn-block {
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
   text-decoration: none;
 }
 
-@media screen and (max-width: calc(382px - 1px)) {
+@media screen and (max-width: calc(380px - 1px)) {
   .jo-det-blk:nth-of-type(1n) {
     background-color: inherit;
   }
@@ -83,7 +73,7 @@ jo-det-blk.jo-det-zip div {
   }
 }
 
-@media screen and (min-width: 382px) {
+@media screen and (min-width: 380px) {
   .jo-det-blk:nth-of-type(1n) {
     background-color: inherit;
   }
@@ -93,7 +83,7 @@ jo-det-blk.jo-det-zip div {
   }
 }
 
-@media screen and (min-width: 702px) {
+@media screen and (min-width: 700px) {
   .jo-det-blk:nth-of-type(1n) {
     background-color: inherit;
   }
@@ -114,7 +104,7 @@ jo-det-blk.jo-det-zip div {
   }
 }
 
-@media screen and (min-width: 1022px) {
+@media screen and (min-width: 1020px) {
   .jo-det-blk:nth-of-type(1n) {
     background-color: inherit;
   }
@@ -124,7 +114,7 @@ jo-det-blk.jo-det-zip div {
   }
 }
 
-@media screen and (min-width: 1342px) {
+@media screen and (min-width: 1340px) {
   .jo-det-blk:nth-of-type(1n) {
     background-color: inherit;
   }
@@ -145,7 +135,7 @@ jo-det-blk.jo-det-zip div {
   }
 }
 
-@media screen and (min-width: 1662px) {
+@media screen and (min-width: 1660px) {
   .jo-det-blk:nth-of-type(1n) {
     background-color: inherit;
   }

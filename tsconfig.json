@@ -26,7 +26,8 @@
   ],
   "files": [
     "src/app/app.module.ts",
-    "src/main.ts"
+    "src/main.ts",
+    "src/polyfills.ts"
   ],
   "angularCompilerOptions": {
     "genDir": "dist",

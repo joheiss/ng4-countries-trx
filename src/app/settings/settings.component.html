@@ -1,10 +1,10 @@
 <mat-card>
   <mat-card-content>
-    <jo-zippy [title]="'Selections' | translate" class=" jo-det-zip">
-      <section class="jo-flx-row jo-det-bdy">
+    <jo-zippy [title]="'Selections' | translate">
+      <section class="jo-flx-row">
         <div *ngFor="let selection of continentSelections"
-          class="jo-flx-row jo-det-blk">
-          <div class="jo-det-lbl">{{ selection.description | translate }}</div>
+          class="jo-flx-row jo-set-blk">
+          <div class="jo-set-lbl">{{ selection.description | translate }}</div>
           <div>
             <mat-checkbox
               [id]="selection.name"
@@ -20,18 +20,18 @@
 
 <mat-card>
   <mat-card-content>
-    <jo-zippy [title]="'Order By' | translate" class=" jo-det-zip">
+    <jo-zippy [title]="'Order By' | translate">
       <h4>Direction</h4>
       <mat-radio-group
         [value]="sortCriteria.direction"
         (change)="onToggleDirection($event)"
-        class="jo-flx-row jo-det-bdy">
-        <div class="jo-flx-row jo-det-blk">
-          <div class="jo-det-lbl">{{ 'Ascending' | translate }}</div>
+        class="jo-flx-row">
+        <div class="jo-flx-row jo-set-blk">
+          <div class="jo-set-lbl">{{ 'Ascending' | translate }}</div>
           <mat-radio-button value="asc"></mat-radio-button>
         </div>
-        <div class="jo-flx-row jo-det-blk">
-          <div class="jo-det-lbl">{{ 'Descending' | translate }}</div>
+        <div class="jo-flx-row jo-set-blk">
+          <div class="jo-set-lbl">{{ 'Descending' | translate }}</div>
           <mat-radio-button value="desc"></mat-radio-button>
         </div>
       </mat-radio-group>
@@ -39,11 +39,11 @@
       <mat-radio-group
         [value]="sortCriteria.fieldName"
         (change)="onToggleOrderBy($event)"
-        class="jo-flx-row jo-det-bdy">
+        class="jo-flx-row">
         <div
           *ngFor="let option of orderByOptions"
-          class="jo-flx-row jo-det-blk">
-          <div class="jo-det-lbl">{{ option.description | translate }}</div>
+          class="jo-flx-row jo-set-blk">
+          <div class="jo-set-lbl">{{ option.description | translate }}</div>
           <mat-radio-button [value]="option.name"></mat-radio-button>
         </div>
       </mat-radio-group>
