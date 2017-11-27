@@ -1,10 +1,7 @@
-<div>
-  <p> {{ 'Countries found' | translate }}: {{ count$ | async }}</p>
-</div>
-<div class="jo-country-list">
+<div class="countries__list">
     <div *ngFor="let country of countries$ | async"
          (click)="onSelect(country)"
-          class="jo-country-item">
+          class="countries__item">
         <jo-country-list-item
           [country]="country"
           [orderBy]="orderBy">

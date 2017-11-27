@@ -1,13 +1,13 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output, ViewEncapsulation} from '@angular/core';
 import {Country, SortCriteria} from '../country';
 import {Router} from '@angular/router';
 import {Observable} from 'rxjs/Observable';
-import {CountriesService} from '../countries.service';
 
 @Component({
   selector: 'jo-country-list',
   templateUrl: './country-list.component.html',
-  styleUrls: ['./country-list.component.css']
+  styleUrls: ['./country-list.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class CountryListComponent {
 

@@ -1,13 +1,50 @@
-<div @slideRightLeft>
-  <jo-countries-search
-    [searchCriteria]="searchCriteria"
-    (search)="onSearch($event)">
-  </jo-countries-search>
+<div class="page" @slideRightLeft>
+  <header class="header">
+    <a href="#" class="logo-box">
+      <svg class="logo__icon">
+        <use xlink:href="../assets/img/sprite.svg#icon-globe"></use>
+      </svg>
+      <span class="logo__text">{{ 'Countries' | translate }}</span>
+    </a>
+    <div class="search-box">
+      <jo-countries-search class="search-field"
+        [searchCriteria]="searchCriteria"
+        (search)="onSearch($event)">
+      </jo-countries-search>
+      <jo-countries-count
+        [count]="count$">
+      </jo-countries-count>
+    </div>
+    <nav class="navigation">
+      <jo-countries-filter
+        [orderBy]="sortCriteria"
+        (filter)="onFilterSelected()">
+      </jo-countries-filter>
+      <jo-countries-sort
+        [orderBy]="sortCriteria"
+        (sort)="onSortSelected()">
+      </jo-countries-sort>
+    </nav>
+  </header>
+
   <jo-country-list [countries]="countries$"
                    [count]="count$"
                    [orderBy]="sortCriteria"
                    (selected)="onSelected($event)">
   </jo-country-list>
+
+  <jo-countries-filter-popup *ngIf="isFilterPopupVisible"
+                             [filter]="searchCriteria"
+                             [continents]="continentSelections"
+                             (closed)="onFilterClosed()"
+                             class="popup">
+  </jo-countries-filter-popup>
+  <jo-countries-sort-popup *ngIf="isSortPopupVisible"
+                           [sort]="sortCriteria"
+                           [options]="orderByOptions"
+                           (closed)="onSortClosed()"
+                           class="popup">
+  </jo-countries-sort-popup>
 </div>
 
 

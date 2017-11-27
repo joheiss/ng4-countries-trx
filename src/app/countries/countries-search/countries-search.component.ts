@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
 import {Subject} from 'rxjs/Subject';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
@@ -8,7 +8,8 @@ import {Router} from '@angular/router';
 @Component({
   selector: 'jo-countries-search',
   templateUrl: './countries-search.component.html',
-  styleUrls: ['./countries-search.component.css']
+  styleUrls: ['./countries-search.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class CountriesSearchComponent implements OnInit {
 

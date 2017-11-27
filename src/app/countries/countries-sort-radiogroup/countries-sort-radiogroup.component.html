@@ -1,0 +1,8 @@
+<jo-countries-sort-radiobutton *ngFor="let button of buttons"
+                               [id]="button.name"
+                               [label]="button.description"
+                               [name]="name"
+                               [value]="value"
+                               (changed)="onChanged($event)"
+                               class="radio-button">
+</jo-countries-sort-radiobutton>

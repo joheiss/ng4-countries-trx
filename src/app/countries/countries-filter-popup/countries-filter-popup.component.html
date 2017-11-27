@@ -1,0 +1,32 @@
+<div class="popup__background">
+  <div @explode class="popup__content">
+    <div class="popup__header">
+      <svg class="popup__icon">
+        <use xlink:href="../assets/img/sprite.svg#icon-funnel"></use>
+      </svg>
+      <h2 class="popup__name">{{ 'Filter' | translate }}</h2>
+      <nav class="popup__close">
+          <div class="btn-box">
+            <a href="#" (click)="onClose()" class="btn btn--round">
+              <svg class="btn-icon">
+                <use xlink:href="../assets/img/sprite.svg#icon-cross"></use>
+              </svg>
+            </a>
+          </div>
+      </nav>
+    </div>
+    <div class="popup__main">
+      <h3 class="heading-tertiary u-margin-top-md u-margin-bottom-sm">{{ 'Continents' | translate }}</h3>
+      <div class="popup__row">
+        <div class="popup__item" *ngFor="let selection of continents">
+          <jo-countries-filter-checkbox class="checkbox"
+            [name]="selection.name"
+            [description]="selection.description"
+            [checked]="filter[selection.name]"
+            (changed)="onChanged($event)">
+          </jo-countries-filter-checkbox>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,6 @@
+<input type="checkbox" class="checkbox__input" [id]="name" [checked]="checked" (change)="onChange($event)">
+<label [attr.for]="name" class="checkbox__label">
+  <span class="checkbox__btn"></span>
+  {{description | translate }}
+</label>
+

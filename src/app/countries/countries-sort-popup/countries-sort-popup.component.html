@@ -1,0 +1,45 @@
+<div class="popup__background">
+  <div @explode class="popup__content">
+    <div class="popup__header">
+      <svg class="popup__icon">
+        <use xlink:href="../assets/img/sprite.svg#icon-select-arrows"></use>
+      </svg>
+      <h2 class="popup__name">{{ 'Sort' | translate }}</h2>
+      <nav class="popup__close">
+        <div class="btn-box">
+          <a href="#" (click)="onClose()" class="btn btn--round">
+            <svg class="btn-icon">
+              <use xlink:href="../assets/img/sprite.svg#icon-cross"></use>
+            </svg>
+          </a>
+        </div>
+      </nav>
+    </div>
+    <div class="popup__main">
+      <h3 class="heading-tertiary u-margin-top-md u-margin-bottom-sm">{{ 'Sort Direction' | translate }}</h3>
+      <div class="popup__row">
+        <div class="popup__item">
+          <jo-countries-sort-radiogroup
+            [name]="'direction'"
+            [buttons]="directions"
+            [value]="direction"
+            (changed)="onChanged($event)"
+            class="radio-group">
+          </jo-countries-sort-radiogroup>
+        </div>
+      </div>
+      <h3 class="heading-tertiary u-margin-top-md u-margin-bottom-sm">{{ 'Sort Field' | translate }}</h3>
+      <div class="popup__row">
+        <div class="popup__item">
+          <jo-countries-sort-radiogroup
+            [name]="'field'"
+            [buttons]="options"
+            [value]="field"
+            (changed)="onChanged($event)"
+            class="radio-group">
+          </jo-countries-sort-radiogroup>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

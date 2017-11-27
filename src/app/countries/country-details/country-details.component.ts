@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Country} from '../country';
 import {ActivatedRoute, Router} from '@angular/router';
 import {CountriesService} from '../countries.service';
@@ -11,6 +11,7 @@ import {slideLeftRight} from '../../shared/animations';
   selector: 'jo-country-details',
   templateUrl: './country-details.component.html',
   styleUrls: ['./country-details.component.css'],
+  encapsulation: ViewEncapsulation.None,
   animations: [
     slideLeftRight
   ]

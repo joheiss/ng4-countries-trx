@@ -1,0 +1,5 @@
+<input type="radio" class="radio__input" [id]="id" [name]="name" [checked]="checked" (change)="onChange($event)">
+<label [attr.for]="id" class="radio__label">
+  <span class="radio__btn"></span>
+  {{label | translate }}
+</label>

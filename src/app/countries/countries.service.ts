@@ -9,8 +9,6 @@ import 'rxjs/add/operator/retry';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/of';
 import {cloneDeep, find, isEqual, orderBy} from 'lodash';
-import {COUNTRIES} from '../../data/countries-data';
-import {environment} from '../../environments/environment';
 import {TranslateService} from '@ngx-translate/core';
 import {HttpClient} from '@angular/common/http';
 
@@ -217,16 +215,7 @@ export class CountriesService {
       .map(response => response.map(item => {
         item.region = item.region || 'None';
         return item;
-      }))
-      .catch(err => {
-        // take from local data store in case rest service is not available
-        return Observable.of(COUNTRIES)
-          .do(() => environment.dataSource = 'offline')
-          .map(response => response.map(item => {
-            item.region = item.region || 'None';
-            return item;
-          }));
-      });
+      }));
   }
 
   private loadCountries(): Observable<Country[]> {
@@ -236,16 +225,7 @@ export class CountriesService {
       .map(response => response.map(item => {
         item.region = item.region || 'None';
         return item;
-      }))
-      .catch(err => {
-        // take from local data store in case rest service is not available
-        return Observable.of(COUNTRIES)
-          .do(() => environment.dataSource = 'offline')
-          .map(response => response.map(item => {
-            item.region = item.region || 'None';
-            return item;
-          }));
-      });
+      }));
   }
 
   private loadSubjects(data: any) {
