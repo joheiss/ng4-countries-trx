@@ -1,0 +1,77 @@
+.navigation {
+  flex: 1;
+  align-self: stretch;
+
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 3rem;
+
+  @media only screen and(max-width: $media-xs) {
+    padding: 0 1rem;
+  }
+
+  &__icon-box {
+
+    &,
+    &:link,
+    &:visited {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      height: 100%;
+      padding: 0 1rem;
+      text-decoration: none;
+      // color: var(--color-grey-light-1);
+      color: var(--color-primary);
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 3px;
+        // background-color: var(--color-primary-light);
+        background-color: var(--color-grey-dark-2);
+        z-index: -1;
+        transform: scaleY(0);
+        transition: transform .2s,
+          width .4s cubic-bezier(1,0,0,1) .2s,
+          background-color .1s;
+      }
+    }
+
+    &:hover::before {
+      transform: scaleY(1);
+      width: 100%;
+    }
+  }
+
+  &__icon {
+    height: 3rem;
+    width: 3rem;
+    fill: currentColor;
+
+    @media only screen and (max-width: $media-xxs) {
+      height: 2rem;
+      width: 2rem;
+    }
+  }
+
+  &__notification {
+    font-size: $default-font-size;
+    font-weight: 400;
+    text-transform: uppercase;
+
+    @media only screen and (max-width: $media-sm) {
+      font-size: calc(#{$default-font-size} - 0.3rem);
+    }
+    @media only screen and (max-width: $media-xxs) {
+      font-size: calc(#{$default-font-size} - 0.5rem);
+    }
+
+  }
+}

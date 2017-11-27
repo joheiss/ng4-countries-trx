@@ -1,0 +1,13 @@
+.page {
+  padding: 1.5rem 3rem;
+  background-color: var(--color-grey-light-3);
+
+  @media only screen and (max-width: $media-md) {
+    padding: 1rem 2rem;
+  }
+
+  @media only screen and (max-width: $media-xxs) {
+    padding: 0;
+  }
+}
+

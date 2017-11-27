@@ -1,0 +1,79 @@
+.btn-row {
+  display: flex;
+}
+
+.btn-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  // margin: 1rem 2rem;
+
+  &--large {
+    transform: scale(1.25);
+
+    @media only screen and (max-width: $media-xs) {
+      transform: scale(0.75);
+      font-size: 150%;
+    }
+  }
+
+  &--medium {
+    transform: scale(0.75);
+  }
+
+  &--small {
+    transform: scale(0.5);
+    font-size: 150%;
+  }
+}
+
+.btn-text {
+   font-size: 75%;
+   text-transform: uppercase;
+   letter-spacing: 1px;
+   margin-top: 0.5rem;
+   cursor: pointer;
+}
+
+.btn {
+  &, &:link, &:visited {
+    // --btn-color: var(--color-grey-light-1);
+    // --btn-bg-color: var(--color-grey-dark-2);
+    --btn-color: var(--color-primary);
+    --btn-bg-color: var(--color-grey-light-2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 4rem;
+    width: 4rem;
+    border: 2px solid var(--btn-color);
+    background-color: var(--btn-bg-color);
+    color: var(--btn-color);
+  }
+
+  &--round {
+    border-radius: 50%;
+  }
+}
+
+.btn-icon {
+  display: inline-block;
+  height: 2rem;
+  width: 2rem;
+  fill: currentColor;
+}
+
+.btn-box:hover > .btn {
+  // border-color: var(--color-primary);
+  // color: var(--color-primary);
+  border-color: var(--color-grey-dark-2);
+  color:  var(--color-grey-dark-2);
+}
+
+.btn-box:hover > .btn-text {
+  // color: var(--color-primary);
+  color: var(--color-grey-dark-2);
+}

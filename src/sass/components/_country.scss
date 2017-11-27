@@ -1,0 +1,88 @@
+.country {
+
+  &__name {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    flex: 0 0 40%;
+
+    @media only screen and (max-width: $media-sm) {
+      font-size: 2.25rem;
+    }
+    @media only screen and (max-width: $media-xs) {
+      font-size: 1.75rem;
+      flex: 0 0 30%;
+    }
+  }
+
+  &__flag {
+    height: 7rem;
+    margin: 0 3rem;
+
+    @media only screen and (max-width: $media-sm) {
+      height: 5rem;
+      margin:  0 2rem;
+    }
+    @media only screen and (max-width: $media-xxs) {
+      height: 3rem;
+      margin: 0 1rem;
+    }
+  }
+
+  &-details {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 11rem;
+
+    &__block {
+      flex: 1;
+      display: flex;
+      justify-content: space-between;
+      min-width: 30rem;
+      padding: 1rem 2rem;
+      margin: 1rem 2rem 1rem 0;
+      background-color: var(--color-grey-light-1);
+      box-shadow: 0 0.5rem 1rem rgba(0,0,0, 0.25);
+
+      transition: all 0.2s;
+
+      @media only screen and (max-width: $media-xxs) {
+        margin: 0.5rem 1rem 0.5rem 0;
+      }
+
+      &:hover {
+        box-shadow: 0 1rem 2rem rgba(0,0,0, 0.25);
+      }
+    }
+
+    &__label {
+      font-size: $default-font-size;
+      font-weight: 700;
+      padding-right: 0.5rem;
+    }
+
+    &__value {
+      font-size: $default-font-size;
+      font-weight: 400;
+    }
+
+    &__zippy {
+      width: 100%;
+    }
+
+    &__list-group {
+      overflow: hidden;
+      cursor: auto;
+    }
+
+    &__list-group-item {
+      font-size: calc(#{$default-font-size} - 0.3rem);
+      font-weight: 400;
+      list-style: none;
+
+      &:nth-of-type(odd) {
+        background-color: var(--color-grey-dark-1);
+      }
+    }
+  }
+}

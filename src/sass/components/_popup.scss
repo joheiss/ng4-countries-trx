@@ -1,0 +1,144 @@
+.popup {
+
+  &__background {
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 3000;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: all 0.3s;
+  }
+
+  &__content {
+    /*
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    */
+
+    background-color: var(--color-grey-light-2);
+    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.25);
+    border-radius: 3px;
+    width: 50%;
+
+    // opacity: 0;
+    // transform: translate(-50%, -50%) scale(0.3);
+
+    @media only screen and (max-width: $media-md) {
+      width: 75%;
+    }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 5.5rem;
+    width: 100%;
+    margin-bottom: 2rem;
+    padding: 0 4rem;
+
+    // background-color: var(--color-grey-dark-2);
+    // color: var(--color-grey-light-1);
+    background-color: var(--color-grey-light-3);
+    color: var(--color-primary);
+
+    box-shadow: 0 0.25rem 0.5rem var(--color-primary-dark);
+
+    @media only screen and (max-width: $media-sm) {
+      padding: 0 2rem;
+    }
+    @media only screen and (max-width: $media-xxs) {
+      padding: 0 1rem;
+    }
+  }
+
+  &__name {
+    font-size: 3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+    @media only screen and (max-width: $media-xxs) {
+      font-size: 2rem;
+      letter-spacing: 1px;
+    }
+  }
+
+  &__close {
+    align-self: flex-end;
+    height: 100%;
+  }
+
+  &__icon-box {
+    &,
+    &:link,
+    &:visited {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      height: 100%;
+      text-decoration: none;
+      // color: var(--color-grey-light-1);
+      color: var(--color-primary);
+    }
+  }
+
+  &__icon {
+
+    height: 3rem;
+    width: 3rem;
+    fill: currentColor;
+
+    @media only screen and (max-width: $media-xxs) {
+      height: 2rem;
+      width: 2rem;
+    }
+  }
+
+  &__main {
+    padding: 0 3rem 3rem 3rem;
+
+    @media only screen and (max-width: $media-sm) {
+      padding: 0 1rem 1rem 1rem;
+    }
+    @media only screen and (max-width: $media-md) {
+      padding: 0 2rem 2rem 2rem;
+    }
+  }
+
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.25);
+  }
+
+  &__item {
+    flex: 1;
+    align-self: stretch;
+    display: flex;
+
+    margin: 1rem 2rem;
+
+    @media only screen and (max-width: $media-sm) {
+     margin: 0.5rem 1rem;
+    }
+  }
+
+  &__text {
+    font-size: $default-font-size;
+  }
+}

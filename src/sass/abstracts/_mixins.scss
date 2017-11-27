@@ -1,0 +1,29 @@
+/* -- breakpoint argument
+ * super-small  - max. 320px
+ * extra-small  - max. 400px
+ * small        - max. 600px
+ * medium       - max. 900px
+ * large        - max. 1200px
+ * extra large  - max. infinite
+ */
+@mixin respond($breakpoint) {
+
+  @if $breakpoint == $media-xxs {
+    @media only screen and (min-width: $media-xxs) { @content };
+  }
+  @if $breakpoint == $media-xs {
+    @media only screen and (min-width: $media-xs) { @content };
+  }
+  @if $breakpoint == $media-sm {
+    @media only screen and (min-width: $media-sm) { @content };
+  }
+  @if $breakpoint == $media-md {
+    @media only screen and (min-width: $media-md) { @content };
+  }
+  @if $breakpoint == $media-lg {
+    @media only screen and (min-width: $media-lg) { @content };
+  }
+  @if $breakpoint == $media-xl {
+    @media only screen and (min-width: $media-xl) { @content };
+  }
+}

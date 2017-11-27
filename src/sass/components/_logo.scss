@@ -1,0 +1,47 @@
+.logo {
+
+  &-box {
+    &,
+    &:link,
+    &:visited {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      padding: 0 3rem;
+      text-decoration: none;
+      color: var(--color-grey-light-1);
+      position: relative;
+
+      @media only screen and(max-width: $media-xs) {
+        padding: 0 1rem;
+      }
+    }
+  }
+
+  &__icon {
+    height: 5rem;
+    width: 5rem;
+    fill: var(--color-primary);
+
+    @media only screen and (max-width: $media-xxs) {
+      height: 3rem;
+      width: 3rem;
+    }
+  }
+
+  &__text {
+    display: none;
+    font-size: $default-font-size;
+    font-weight: 400;
+    text-transform: uppercase;
+
+    @media only screen and (max-width: $media-sm) {
+      font-size: calc(#{$default-font-size} - 0.3rem);
+    }
+    @media only screen and (max-width: $media-xxs) {
+      display: none;
+    }
+  }
+}

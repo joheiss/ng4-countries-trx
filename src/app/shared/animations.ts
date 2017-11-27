@@ -54,3 +54,17 @@ export const slideRightLeft = trigger('slideRightLeft', [
     animate('500ms ease-in', style({  transform: 'translateX(200%)', opacity: 0 }))
   ])
 ]);
+
+export const explode = trigger('explode', [
+
+  state('void', style({ transform: 'scale(0.3)', opacity: 0 })),
+  state('*', style({ transform: 'translate(-50%, -50%), scale(1)', opacity: 1 })),
+
+  transition(':enter', [
+    animate('500ms ease-out')
+  ]),
+
+  transition(':leave', [
+    animate('500ms ease-in')
+  ]),
+]);

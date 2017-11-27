@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
 import {CountriesService} from './countries/countries.service';
 import {Router} from '@angular/router';
 import 'rxjs/add/operator/filter';
@@ -7,7 +7,8 @@ import {TranslateService} from '@ngx-translate/core';
 @Component({
   selector: 'jo-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnInit, OnDestroy {
 

@@ -1,0 +1,22 @@
+.zippy {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-between;
+
+  overflow: hidden;
+  cursor: pointer;
+
+  &__heading {
+    flex: 1;
+    font-size: $default-font-size;
+    font-weight: 700;
+    margin-right: auto;
+  }
+
+  &__icon {
+  }
+
+  &__body {
+    width: 100%;
+  }
+}

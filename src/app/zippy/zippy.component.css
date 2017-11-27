@@ -1,21 +1,3 @@
-.jo-zippy {
-    width: 100%;
-}
 
-.jo-zippy-heading {
-    font-weight: bold;
-    /* padding: 1rem 0; */
-    cursor: pointer;
-}
 
-.jo-zippy-body {
-    background-color: white;
-}
-
-.expanded {
-    background-color: #f0f0f0;
-}
-
-.fa {
-     float: right;
-}
+/*# sourceMappingURL=zippy.component.css.map */
