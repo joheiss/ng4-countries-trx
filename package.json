@@ -11,6 +11,7 @@
     "e2e": "ng e2e",
     "serve": "ng serve --locale de",
     "build:prod": "ng build --prod --locale de",
+    "deploy:de": "ng build --prod --locale de --base-href 'https://joheiss.github.io/ng4-countries-trx/'",
     "watch:sass": "node-sass src/sass/main.scss src/styles.css -w"
   },
   "private": true,
