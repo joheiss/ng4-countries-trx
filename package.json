@@ -11,8 +11,8 @@
     "e2e": "ng e2e",
     "serve": "ng serve --locale de",
     "build:prod": "ng build --prod --locale de",
-    "deploy:de": "ng build --prod --locale de --base-href 'https://joheiss.github.io/ng4-countries-trx/'",
-    "deploy:git": "ngh --repo=https://0af1627928df160033e8aa8e48b868788c1e5931@github.com/joheiss/ng4-countries-trx.git",
+    "deploy:de": "ng build --prod --locale de --base-href",
+    "deploy:git": "ngh --no-silent --repo=https://GH_TOKEN@github.com/joheiss/ng4-countries-trx.git",
     "watch:sass": "node-sass src/sass/main.scss src/styles.css -w"
   },
   "private": true,
