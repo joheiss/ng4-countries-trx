@@ -13,6 +13,9 @@
   --color-grey-dark-2: #777;
   --color-grey-dark-3: #333;
   --color-grey-dark-4: #222;
+
+  --btn-color: var(--color-primary);
+  --btn-bg-color: var(--color-grey-light-2);
 }
 
 /* -- universal reset -- */
@@ -52,6 +55,9 @@ html {
   }
   @media only screen and (max-width: $media-xxs) {
     font-size: 50%;
+  }
+  @media only screen and (max-width: $media-xxxs) {
+    font-size: 40%;
   }
 
 }

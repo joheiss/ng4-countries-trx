@@ -16,8 +16,6 @@ export class CountriesSortRadiogroupComponent {
   constructor() { }
 
   onChanged(event) {
-    console.log('Radio group changed: ', event);
     this.changed.emit(event);
   }
-
 }

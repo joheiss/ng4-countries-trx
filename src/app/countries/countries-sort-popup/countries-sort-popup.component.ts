@@ -30,7 +30,6 @@ export class CountriesSortPopupComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     this.direction = this.sort.direction;
     this.field = this.sort.fieldName;
-    console.log('SORT CRITERIA: ', this.sort);
   }
 
   onClose() {
@@ -43,7 +42,7 @@ export class CountriesSortPopupComponent implements OnChanges {
     } else {
       this.sort.fieldName = event.target.id;
     }
-    console.log('SORT CRITERIA: ', this.sort);
+    // console.log('SORT CRITERIA: ', this.sort);
   }
 
 }

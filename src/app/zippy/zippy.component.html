@@ -5,10 +5,12 @@
     {{ title }}
   </div>
   <div class="zippy__icon">
-    <span class ="fa"
-       [ngClass]="{ 'fa-chevron-down': !isExpanded, 'fa-chevron-up': isExpanded }"
-    >
-    </span>
+      <svg *ngIf="!isExpanded" class="zippy__icon--not-expanded">
+        <use xlink:href="../assets/img/sprite.svg#icon-chevron-down"></use>
+      </svg>
+    <svg *ngIf="isExpanded" class="zippy__icon--expanded">
+      <use xlink:href="../assets/img/sprite.svg#icon-chevron-up"></use>
+    </svg>
   </div>
   <div @slideUpDown *ngIf="isExpanded" class="zippy__body">
     <ng-content></ng-content>

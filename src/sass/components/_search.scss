@@ -9,6 +9,10 @@
     @media only screen and (max-width: $media-xxs) {
       flex: 0 0 50%;
     }
+    @media only screen and(max-width: $media-xxxs) {
+      height: 50%;
+      flex: 0 0 80%;
+    }
   }
 
   &-field {

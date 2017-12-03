@@ -39,10 +39,6 @@
 
 .btn {
   &, &:link, &:visited {
-    // --btn-color: var(--color-grey-light-1);
-    // --btn-bg-color: var(--color-grey-dark-2);
-    --btn-color: var(--color-primary);
-    --btn-bg-color: var(--color-grey-light-2);
     display: flex;
     justify-content: center;
     align-items: center;

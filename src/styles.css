@@ -19,7 +19,9 @@
   --color-grey-dark-1: #999;
   --color-grey-dark-2: #777;
   --color-grey-dark-3: #333;
-  --color-grey-dark-4: #222; }
+  --color-grey-dark-4: #222;
+  --btn-color: var(--color-primary);
+  --btn-bg-color: var(--color-grey-light-2); }
 
 /* -- universal reset -- */
 * {
@@ -56,6 +58,9 @@ html {
   @media only screen and (max-width: 20em) {
     html {
       font-size: 50%; } }
+  @media only screen and (max-width: 15em) {
+    html {
+      font-size: 40%; } }
 
 /* -- universal font definitions */
 body {
@@ -141,6 +146,9 @@ body {
   @media only screen and (max-width: 25em) {
     .logo-box, .logo-box:link, .logo-box:visited {
       padding: 0 1rem; } }
+  @media only screen and (max-width: 15em) {
+    .logo-box, .logo-box:link, .logo-box:visited {
+      height: 50%; } }
 
 .logo__icon {
   height: 5rem;
@@ -172,6 +180,10 @@ body {
   @media only screen and (max-width: 20em) {
     .search-box {
       flex: 0 0 50%; } }
+  @media only screen and (max-width: 15em) {
+    .search-box {
+      height: 50%;
+      flex: 0 0 80%; } }
 
 .search-field {
   flex: 1; }
@@ -231,6 +243,9 @@ body {
   display: flex;
   flex-wrap: wrap;
   margin-top: 10rem; }
+  @media only screen and (max-width: 15em) {
+    .countries__list {
+      margin-top: 13rem; } }
 
 .countries__item {
   flex: 1;
@@ -273,6 +288,10 @@ body {
     .country__name {
       font-size: 1.75rem;
       flex: 0 0 30%; } }
+  @media only screen and (max-width: 15em) {
+    .country__name {
+      font-size: 1.75rem;
+      flex: 0 0 70%; } }
 
 .country__flag {
   height: 7rem;
@@ -290,6 +309,9 @@ body {
   display: flex;
   flex-wrap: wrap;
   margin-top: 11rem; }
+  @media only screen and (max-width: 15em) {
+    .country-details {
+      margin-top: 13rem; } }
   .country-details__block {
     flex: 1;
     display: flex;
@@ -303,6 +325,9 @@ body {
     @media only screen and (max-width: 20em) {
       .country-details__block {
         margin: 0.5rem 1rem 0.5rem 0; } }
+    @media only screen and (max-width: 15em) {
+      .country-details__block {
+        min-width: 25rem; } }
     .country-details__block:hover {
       box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.25); }
   .country-details__label {
@@ -318,7 +343,7 @@ body {
     overflow: hidden;
     cursor: auto; }
   .country-details__list-group-item {
-    font-size: calc(1.6rem - 0.3rem);
+    font-size: calc(1.6rem - 0.2rem);
     font-weight: 400;
     list-style: none; }
     .country-details__list-group-item:nth-of-type(odd) {
@@ -335,6 +360,10 @@ body {
     font-size: 1.6rem;
     font-weight: 700;
     margin-right: auto; }
+  .zippy__icon--not-expanded, .zippy__icon--expanded {
+    height: 3rem;
+    width: 3rem;
+    fill: var(--color-primary); }
   .zippy__body {
     width: 100%; }
 
@@ -365,6 +394,9 @@ body {
   @media only screen and (max-width: 56.25em) {
     .popup__content {
       width: 75%; } }
+  @media only screen and (max-width: 15em) {
+    .popup__content {
+      width: 90%; } }
 
 .popup__header {
   display: flex;
@@ -383,6 +415,9 @@ body {
   @media only screen and (max-width: 20em) {
     .popup__header {
       padding: 0 1rem; } }
+  @media only screen and (max-width: 15em) {
+    .popup__header {
+      padding: 0 0.5rem; } }
 
 .popup__name {
   font-size: 3rem;
@@ -393,6 +428,10 @@ body {
     .popup__name {
       font-size: 2rem;
       letter-spacing: 1px; } }
+  @media only screen and (max-width: 20em) {
+    .popup__name {
+      font-size: 1.5rem;
+      letter-spacing: 0.5px; } }
 
 .popup__close {
   align-self: flex-end;
@@ -493,6 +532,10 @@ body {
   margin: 1rem 2rem; }
   .radio-button:last-child {
     margin-right: 0; }
+  @media only screen and (max-width: 15em) {
+    .radio-button {
+      margin: 1rem 0;
+      min-width: 16rem; } }
 
 .radio__input {
   display: none; }
@@ -560,8 +603,6 @@ body {
   cursor: pointer; }
 
 .btn, .btn:link, .btn:visited {
-  --btn-color: var(--color-primary);
-  --btn-bg-color: var(--color-grey-light-2);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -604,6 +645,11 @@ body {
   @media only screen and (max-width: 37.5em) {
     .header {
       height: 9rem; } }
+  @media only screen and (max-width: 15em) {
+    .header {
+      flex-wrap: wrap;
+      height: 13rem;
+      align-items: flex-start; } }
 
 .navigation {
   flex: 1;
@@ -614,6 +660,12 @@ body {
   @media only screen and (max-width: 25em) {
     .navigation {
       padding: 0 1rem; } }
+  @media only screen and (max-width: 20em) {
+    .navigation {
+      padding: 0 0.5rem; } }
+  @media only screen and (max-width: 15em) {
+    .navigation {
+      justify-content: space-evenly; } }
   .navigation__icon-box, .navigation__icon-box:link, .navigation__icon-box:visited {
     position: relative;
     display: flex;

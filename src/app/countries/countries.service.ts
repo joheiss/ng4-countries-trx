@@ -87,7 +87,7 @@ export class CountriesService {
 
     this.translate.setDefaultLang('en');
     this.translate.use(window.navigator.language.substring(0, 2));
-    console.log('CURRENT LANGUAGE: ', this.translate.currentLang);
+    // console.log('CURRENT LANGUAGE: ', this.translate.currentLang);
 
     this._countries = null;
 

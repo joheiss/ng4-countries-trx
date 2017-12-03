@@ -2,7 +2,6 @@
   display: flex;
   flex-flow: wrap;
   justify-content: space-between;
-
   overflow: hidden;
   cursor: pointer;
 
@@ -14,6 +13,12 @@
   }
 
   &__icon {
+    &--not-expanded,
+    &--expanded {
+      height: 3rem;
+      width: 3rem;
+      fill: var(--color-primary);
+    }
   }
 
   &__body {

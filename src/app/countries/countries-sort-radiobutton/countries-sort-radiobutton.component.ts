@@ -22,7 +22,6 @@ export class CountriesSortRadiobuttonComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     this.checked = this.id === this.value;
-    console.log('RADIOBUTTON ', this.id, ' IS CHECKED: ', this.checked);
   }
 
   onChange(event) {

@@ -16,8 +16,11 @@
   &__list {
     display: flex;
     flex-wrap: wrap;
-
     margin-top: 10rem;
+
+    @media only screen and (max-width: $media-xxxs) {
+      margin-top: 13rem;
+    }
   }
 
   &__item {
