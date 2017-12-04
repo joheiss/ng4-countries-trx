@@ -1,11 +1,12 @@
 <div class="countries__list">
-    <div *ngFor="let country of countries$ | async"
-         (click)="onSelect(country)"
-          class="countries__item">
-        <jo-country-list-item
-          [country]="country"
-          [orderBy]="orderBy">
-        </jo-country-list-item>
-    </div>
+  <div *ngFor="let country of countries$ | async; let i = index"
+       (click)="onSelect(country)"
+       class="countries__item">
+    <jo-country-list-item
+      [country]="country"
+      [orderBy]="orderBy"
+      [ranking]="i+1">
+    </jo-country-list-item>
+  </div>
 </div>
 

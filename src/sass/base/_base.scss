@@ -57,9 +57,11 @@ html {
     font-size: 50%;
   }
   @media only screen and (max-width: $media-xxxs) {
+  font-size: 40%;
+}
+  @media only screen and (max-width: $media-xxxxs) {
     font-size: 40%;
   }
-
 }
 
 /* -- universal font definitions */

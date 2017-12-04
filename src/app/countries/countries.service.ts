@@ -36,14 +36,14 @@ export class CountriesService {
   ];
 
   private _orderByOptions = [
-    { name: 'name', description: 'Country Name' },
-    { name: 'alpha3Code', description: 'ISO Code' },
-    { name: 'region', description: 'Region' },
-    { name: 'subregion', description: 'Sub Region' },
-    { name: 'population', description: 'Population' },
-    { name: 'area', description: 'Area Size' },
-    { name: 'gini', description: 'Gini Index' },
-    { name: 'numericCode', description: 'Numeric Code' },
+    { name: 'name', description: 'Country Name', isRankDisplayed: false },
+    { name: 'alpha3Code', description: 'ISO Code', isRankDisplayed: false },
+    { name: 'region', description: 'Region', isRankDisplayed: false },
+    { name: 'subregion', description: 'Sub Region', isRankDisplayed: false },
+    { name: 'population', description: 'Population', isRankDisplayed: true },
+    { name: 'area', description: 'Area Size', isRankDisplayed: true },
+    { name: 'gini', description: 'Gini Index', isRankDisplayed: true },
+    { name: 'numericCode', description: 'Numeric Code', isRankDisplayed: false },
   ];
 
   constructor(private http: HttpClient,

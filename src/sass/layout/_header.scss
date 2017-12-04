@@ -26,9 +26,6 @@
     height: 9rem;
   }
   @media only screen and (max-width: $media-xxs) {
-    // padding: 0 1rem;
-  }
-  @media only screen and (max-width: $media-xxxs) {
     flex-wrap: wrap;
     height: 13rem;
     align-items: flex-start;

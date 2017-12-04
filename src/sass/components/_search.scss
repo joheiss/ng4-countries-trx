@@ -6,10 +6,7 @@
     justify-content: space-around;
     align-items: center;
 
-    @media only screen and (max-width: $media-xxs) {
-      flex: 0 0 50%;
-    }
-    @media only screen and(max-width: $media-xxxs) {
+    @media only screen and(max-width: $media-xxs) {
       height: 50%;
       flex: 0 0 80%;
     }

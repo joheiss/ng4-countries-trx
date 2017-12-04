@@ -61,6 +61,9 @@ html {
   @media only screen and (max-width: 15em) {
     html {
       font-size: 40%; } }
+  @media only screen and (max-width: 11.25em) {
+    html {
+      font-size: 40%; } }
 
 /* -- universal font definitions */
 body {
@@ -146,9 +149,12 @@ body {
   @media only screen and (max-width: 25em) {
     .logo-box, .logo-box:link, .logo-box:visited {
       padding: 0 1rem; } }
-  @media only screen and (max-width: 15em) {
+  @media only screen and (max-width: 20em) {
     .logo-box, .logo-box:link, .logo-box:visited {
       height: 50%; } }
+  @media only screen and (max-width: 11.25em) {
+    .logo-box, .logo-box:link, .logo-box:visited {
+      display: none; } }
 
 .logo__icon {
   height: 5rem;
@@ -178,9 +184,6 @@ body {
   justify-content: space-around;
   align-items: center; }
   @media only screen and (max-width: 20em) {
-    .search-box {
-      flex: 0 0 50%; } }
-  @media only screen and (max-width: 15em) {
     .search-box {
       height: 50%;
       flex: 0 0 80%; } }
@@ -243,9 +246,9 @@ body {
   display: flex;
   flex-wrap: wrap;
   margin-top: 10rem; }
-  @media only screen and (max-width: 15em) {
+  @media only screen and (max-width: 20em) {
     .countries__list {
-      margin-top: 13rem; } }
+      margin-top: 13.5rem; } }
 
 .countries__item {
   flex: 1;
@@ -254,13 +257,18 @@ body {
   background-color: var(--color-grey-light-1);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25);
   cursor: pointer;
-  transition: all 0.2s; }
+  transition: all 0.2s;
+  position: relative;
+  z-index: 1; }
   .countries__item:hover {
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.25); }
 
 .countries__cell {
   display: flex;
   min-width: 25rem; }
+  @media only screen and (max-width: 15em) {
+    .countries__cell {
+      min-width: 20rem; } }
 
 .countries__img {
   width: 4rem;
@@ -276,6 +284,22 @@ body {
   font-weight: 400;
   margin-left: 5rem; }
 
+.countries__ranking {
+  height: 3rem;
+  width: 3rem;
+  text-align: center;
+  line-height: 3rem;
+  vertical-align: middle;
+  background-color: var(--color-grey-dark-1);
+  color: var(--color-grey-light-1);
+  font-size: calc(1.6rem - 0.3rem);
+  border: 1px solid var(--color-grey-dark-1);
+  border-radius: 50%;
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+  z-index: 100; }
+
 .country__name {
   font-size: 3.5rem;
   font-weight: 700;
@@ -288,10 +312,9 @@ body {
     .country__name {
       font-size: 1.75rem;
       flex: 0 0 30%; } }
-  @media only screen and (max-width: 15em) {
+  @media only screen and (max-width: 20em) {
     .country__name {
-      font-size: 1.75rem;
-      flex: 0 0 70%; } }
+      flex: 0 0 80%; } }
 
 .country__flag {
   height: 7rem;
@@ -309,7 +332,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   margin-top: 11rem; }
-  @media only screen and (max-width: 15em) {
+  @media only screen and (max-width: 20em) {
     .country-details {
       margin-top: 13rem; } }
   .country-details__block {
@@ -348,6 +371,8 @@ body {
     list-style: none; }
     .country-details__list-group-item:nth-of-type(odd) {
       background-color: var(--color-grey-dark-1); }
+    .country-details__list-group-item--clickable {
+      cursor: pointer; }
 
 .zippy {
   display: flex;
@@ -645,7 +670,7 @@ body {
   @media only screen and (max-width: 37.5em) {
     .header {
       height: 9rem; } }
-  @media only screen and (max-width: 15em) {
+  @media only screen and (max-width: 20em) {
     .header {
       flex-wrap: wrap;
       height: 13rem;
@@ -662,9 +687,7 @@ body {
       padding: 0 1rem; } }
   @media only screen and (max-width: 20em) {
     .navigation {
-      padding: 0 0.5rem; } }
-  @media only screen and (max-width: 15em) {
-    .navigation {
+      padding: 0 0.5rem;
       justify-content: space-evenly; } }
   .navigation__icon-box, .navigation__icon-box:link, .navigation__icon-box:visited {
     position: relative;

@@ -60,5 +60,6 @@ export class SearchCriteria {
 export class SortCriteria {
 
   constructor(public fieldName: string = 'name',
-              public direction: string = 'asc') {}
+              public direction: string = 'asc',
+              public isRankDisplayed: boolean = false) {}
 }

@@ -18,8 +18,8 @@
     flex-wrap: wrap;
     margin-top: 10rem;
 
-    @media only screen and (max-width: $media-xxxs) {
-      margin-top: 13rem;
+    @media only screen and (max-width: $media-xxs) {
+      margin-top: 13.5rem;
     }
   }
 
@@ -32,6 +32,8 @@
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25);
     cursor: pointer;
     transition: all 0.2s;
+    position: relative;
+    z-index: 1;
 
     &:hover {
       box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.25);
@@ -41,6 +43,10 @@
   &__cell {
     display: flex;
     min-width: 25rem;
+
+    @media only screen and (max-width: $media-xxxs) {
+      min-width: 20rem;
+    }
   }
 
   &__img {
@@ -58,6 +64,24 @@
     font-size: calc(#{$default-font-size} - 0.3rem);
     font-weight: 400;
     margin-left: 5rem;
+  }
+
+  &__ranking {
+    height: 3rem;
+    width: 3rem;
+    text-align: center;
+    line-height: 3rem;
+    vertical-align: middle;
+    background-color: var(--color-grey-dark-1);
+    color: var(--color-grey-light-1);
+    font-size: calc(#{$default-font-size} - 0.3rem);
+    border: 1px solid var(--color-grey-dark-1);
+    border-radius: 50%;
+
+    position: absolute;
+    top: -0.5rem;
+    right: -0.5rem;
+    z-index: 100;
   }
 }
 

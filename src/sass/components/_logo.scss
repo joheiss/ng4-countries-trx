@@ -17,8 +17,11 @@
       @media only screen and(max-width: $media-xs) {
         padding: 0 1rem;
       }
-      @media only screen and(max-width: $media-xxxs) {
+      @media only screen and(max-width: $media-xxs) {
         height: 50%;
+      }
+      @media only screen and(max-width: $media-xxxxs) {
+        display: none;
       }
     }
   }

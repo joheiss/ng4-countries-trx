@@ -7,6 +7,10 @@
   class="countries__orderby">
   {{ getOrderByDescription(orderBy.fieldName) | translate }}: {{ getSortValue(orderBy.fieldName)}}
 </div>
-
+<div
+  *ngIf="getOrderByRankingVisibility(orderBy.fieldName)"
+  class="countries__ranking">
+  {{ ranking }}
+</div>
 
 

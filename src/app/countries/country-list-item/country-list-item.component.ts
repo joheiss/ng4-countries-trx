@@ -13,6 +13,7 @@ export class CountryListItemComponent {
 
   @Input('country') country: Country;
   @Input('orderBy') orderBy: SortCriteria;
+  @Input('ranking') ranking: number;
 
   constructor(private service: CountriesService,
               private translate: TranslateService) {}
@@ -23,6 +24,14 @@ export class CountryListItemComponent {
       return found.description;
     }
     return '';
+  }
+
+  getOrderByRankingVisibility(name: string): boolean {
+    const found = find(this.service.orderByOptions, option => option.name === name);
+    if (found) {
+      return found.isRankDisplayed;
+    }
+    return false;
   }
 
   getSortValue(name: string): string {
