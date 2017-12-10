@@ -112,8 +112,9 @@
       <jo-zippy [title]="'Borders' | translate" class="country-details__zippy">
         <ul class="country-details__list-group">
           <li *ngFor="let border of country?.borders"
+              (click)="onNavigateToCountry(border['code'])"
               class="country-details__list-group-item country-details__list-group-item--clickable">
-            <a (click)="onNavigateToCountry(border['code'])"> {{'COUNTRY_' + border['code'] | translate}}</a>
+            <a> {{'COUNTRY_' + border['code'] | translate}}</a>
           </li>
         </ul>
       </jo-zippy>

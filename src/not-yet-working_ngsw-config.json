@@ -1,0 +1,56 @@
+{
+  "index": "/index.html",
+  "assetGroups": [{
+    "name": "app",
+    "installMode": "prefetch",
+    "resources": {
+      "files": [
+        "/favicon.ico",
+        "/index.html"
+      ],
+      "versionedFiles": [
+        "/*.bundle.css",
+        "/*.bundle.js",
+        "/*.chunk.js"
+      ]
+    }
+  }, {
+    "name": "assets",
+    "installMode": "lazy",
+    "updateMode": "prefetch",
+    "resources": {
+      "files": [
+        "/assets/**"
+      ],
+      "urls": [
+        "https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900"
+      ]
+    }
+  }],
+  "dataGroups": [
+    {
+      "name": "countries",
+      "urls": [
+        "https://restcountries.eu/rest/**"
+      ],
+      "cacheConfig": {
+        "strategy": "performance",
+        "maxSize": "10",
+        "maxAge": "1d",
+        "timeout": "1s"
+      }
+    },
+    {
+      "name": "flags",
+      "urls": [
+        "https://restcountries.eu/data/**"
+      ],
+      "cacheConfig": {
+        "strategy": "performance",
+        "maxSize": "300",
+        "maxAge": "10d",
+        "timeout": "1s"
+      }
+    }
+  ]
+}

@@ -8,13 +8,17 @@
 
     @media only screen and (max-width: $media-sm) {
       font-size: 2.25rem;
+      flex: 0 0 30%;
     }
     @media only screen and (max-width: $media-xs) {
       font-size: 1.75rem;
       flex: 0 0 30%;
     }
-    @media only screen and (max-width: $media-xxs) {
+    @media only screen and (max-width: $media-xxxxs) {
       flex: 0 0 80%;
+    }
+    @media only screen and (max-width: $media-xxxxxs) {
+      flex: 0 0 70%;
     }
   }
 
@@ -25,6 +29,10 @@
     @media only screen and (max-width: $media-sm) {
       height: 5rem;
       margin: 0 2rem;
+    }
+    @media only screen and (max-width: $media-xs) {
+      height: 4rem;
+      margin: 0 1rem;
     }
     @media only screen and (max-width: $media-xxs) {
       height: 3rem;
@@ -37,7 +45,7 @@
     flex-wrap: wrap;
     margin-top: 11rem;
 
-    @media only screen and (max-width: $media-xxs) {
+    @media only screen and (max-width: $media-xxxxs) {
       margin-top: 13rem;
     }
 
@@ -89,6 +97,7 @@
       font-size: calc(#{$default-font-size} - 0.2rem);
       font-weight: 400;
       list-style: none;
+      padding: 0.5rem;
 
       &:nth-of-type(odd) {
         background-color: var(--color-grey-dark-1);

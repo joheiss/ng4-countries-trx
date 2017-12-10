@@ -1,10 +1,10 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Country} from '../country';
 import {ActivatedRoute, Router} from '@angular/router';
+import { Location} from '@angular/common';
 import {CountriesService} from '../countries.service';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/do';
-import {Location} from '@angular/common';
 import {slideLeftRight} from '../../shared/animations';
 
 @Component({
