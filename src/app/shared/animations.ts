@@ -67,4 +67,8 @@ export const explode = trigger('explode', [
   transition(':leave', [
     animate('500ms ease-in')
   ]),
+
+  transition('* => *', [
+    animate('500ms ease-in')
+  ]),
 ]);

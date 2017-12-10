@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {APP_INITIALIZER, LOCALE_ID, NgModule} from '@angular/core';
-// import { ServiceWorkerModule } from '@angular/service-worker';
-// import { environment } from '../environments/environment';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 import {CountriesModule} from './countries/countries.module';
 
 import {AppComponent} from './app.component';
@@ -47,7 +47,7 @@ export function localeIdFactory() {
   ],
   imports: [
     BrowserModule,
-    // ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
     HttpClientModule,
     SharedModule,
     TranslateModule.forRoot({

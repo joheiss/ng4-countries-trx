@@ -6,7 +6,10 @@
     "resources": {
       "files": [
         "/favicon.ico",
-        "/index.html"
+        "/index.html",
+        "/assets/i18n/de.json",
+        "/assets/i18n/en.json",
+        "/assets/img/sprite.svg"
       ],
       "versionedFiles": [
         "/*.bundle.css",
@@ -20,7 +23,7 @@
     "updateMode": "prefetch",
     "resources": {
       "files": [
-        "/assets/**"
+        "/assets/img/icons/**"
       ],
       "urls": [
         "https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900"
@@ -37,7 +40,7 @@
         "strategy": "performance",
         "maxSize": "10",
         "maxAge": "1d",
-        "timeout": "1s"
+        "timeout": "3s"
       }
     },
     {
@@ -49,7 +52,7 @@
         "strategy": "performance",
         "maxSize": "300",
         "maxAge": "10d",
-        "timeout": "1s"
+        "timeout": "3s"
       }
     }
   ]
