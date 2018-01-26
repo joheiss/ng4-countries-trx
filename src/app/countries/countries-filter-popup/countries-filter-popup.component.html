@@ -21,7 +21,7 @@
         <div class="popup__item" *ngFor="let selection of continents">
           <jo-countries-filter-checkbox class="checkbox"
             [name]="selection.name"
-            [description]="selection.description"
+            [displayName]="selection.displayName"
             [checked]="filter[selection.name]"
             (changed)="onChanged($event)">
           </jo-countries-filter-checkbox>

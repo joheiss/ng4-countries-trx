@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output, ViewEncapsulation} from '@angular/core';
-import {SortCriteria} from '../country';
+import {CountriesSortCriteria} from '../model/countries-sort-criteria';
 
 @Component({
   selector: 'jo-countries-filter',
@@ -9,7 +9,7 @@ import {SortCriteria} from '../country';
 })
 export class CountriesFilterComponent {
 
-  @Input('orderBy') orderBy: SortCriteria;
+  @Input('orderBy') orderBy: CountriesSortCriteria;
   @Output('filter') filter = new EventEmitter<string>();
 
   constructor() { }

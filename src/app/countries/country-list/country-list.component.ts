@@ -1,7 +1,8 @@
 import {Component, EventEmitter, Input, Output, ViewEncapsulation} from '@angular/core';
-import {Country, SortCriteria} from '../country';
 import {Router} from '@angular/router';
 import {Observable} from 'rxjs/Observable';
+import {Country} from '../model/country';
+import {CountriesSortCriteria} from '../model/countries-sort-criteria';
 
 @Component({
   selector: 'jo-country-list',
@@ -13,7 +14,7 @@ export class CountryListComponent {
 
     @Input('countries') countries$: Observable<Country[]>;
     @Input('count') count$: Observable<number>;
-    @Input('orderBy') orderBy: SortCriteria;
+    @Input('orderBy') orderBy: CountriesSortCriteria;
     @Output('selected') selected = new EventEmitter<Country>();
 
     constructor(private router: Router) {}

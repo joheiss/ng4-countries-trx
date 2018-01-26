@@ -1,6 +1,9 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewEncapsulation} from '@angular/core';
-import {SortCriteria} from '../country';
 import {explode} from '../../shared/animations';
+import {CountriesSortCriteria} from '../model/countries-sort-criteria';
+import {OrderByOption} from '../model/orderby-option';
+import {CountriesService} from '../countries.service';
+import {CountriesSortDirection} from '../model/countries-sort-direction';
 
 @Component({
   selector: 'jo-countries-sort-popup',
@@ -13,14 +16,10 @@ import {explode} from '../../shared/animations';
 })
 export class CountriesSortPopupComponent implements OnChanges {
 
-  @Input('sort') sort: SortCriteria;
-  @Input('options') options: any[];
+  @Input('sort') sort: CountriesSortCriteria;
+  @Input('options') options: OrderByOption[];
+  @Input('directions') directions: CountriesSortDirection[];
   @Output('closed') closed = new EventEmitter<any>();
-
-  directions = [
-    { name: 'asc',  description: 'Ascending' },
-    { name: 'desc', description: 'Descending' }
-  ];
 
   direction: string;
   field: string;

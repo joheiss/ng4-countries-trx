@@ -2,8 +2,8 @@ import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from 
 import {Subject} from 'rxjs/Subject';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
-import {SearchCriteria} from '../country';
 import {Router} from '@angular/router';
+import {CountriesSearchCriteria} from '../model/countries-search-criteria';
 
 @Component({
   selector: 'jo-countries-search',
@@ -13,10 +13,10 @@ import {Router} from '@angular/router';
 })
 export class CountriesSearchComponent implements OnInit {
 
-  @Input('searchCriteria') searchCriteria: SearchCriteria;
-  @Output('search') search = new EventEmitter<SearchCriteria>();
+  @Input('searchCriteria') searchCriteria: CountriesSearchCriteria;
+  @Output('search') search = new EventEmitter<CountriesSearchCriteria>();
 
-  search$ = new Subject<SearchCriteria>();
+  search$ = new Subject<CountriesSearchCriteria>();
 
   constructor(private router: Router) {
     this.search$
@@ -32,10 +32,6 @@ export class CountriesSearchComponent implements OnInit {
   onInput(term) {
     this.searchCriteria.term = term.toLocaleLowerCase();
     this.search$.next(this.searchCriteria);
-  }
-
-  onSettings() {
-    this.router.navigate(['settings']);
   }
 
 }

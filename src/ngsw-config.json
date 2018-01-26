@@ -32,26 +32,15 @@
   }],
   "dataGroups": [
     {
-      "name": "countries",
+      "name": "api-performance",
       "urls": [
-        "https://restcountries.eu/rest/**"
-      ],
-      "cacheConfig": {
-        "strategy": "performance",
-        "maxSize": "10",
-        "maxAge": "1d",
-        "timeout": "3s"
-      }
-    },
-    {
-      "name": "flags",
-      "urls": [
+        "https://restcountries.eu/rest/**",
         "https://restcountries.eu/data/**"
       ],
       "cacheConfig": {
         "strategy": "performance",
-        "maxSize": "300",
-        "maxAge": "10d",
+        "maxSize": 300,
+        "maxAge": "1d",
         "timeout": "3s"
       }
     }

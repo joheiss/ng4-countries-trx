@@ -44,22 +44,3 @@ export class Country {
                 public flag: string,
                 public regionalBlocs: IRegionalBlocs[]) {}
 }
-
-export class SearchCriteria {
-
-  constructor(public term: string = '',
-              public africa: boolean = true,
-              public antarctica: boolean = true,
-              public asia: boolean = true,
-              public australia: boolean = true,
-              public america: boolean = true,
-              public europe: boolean = true,
-              public none: boolean = true) { }
-}
-
-export class SortCriteria {
-
-  constructor(public fieldName: string = 'name',
-              public direction: string = 'asc',
-              public isRankDisplayed: boolean = false) {}
-}

@@ -1,5 +1,4 @@
 import {Injectable} from '@angular/core';
-import {Country, SearchCriteria, SortCriteria} from './country';
 import {Observable} from 'rxjs/Observable';
 import {ReplaySubject} from 'rxjs/ReplaySubject';
 import 'rxjs/add/operator/do';
@@ -8,9 +7,17 @@ import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/retry';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/of';
-import {cloneDeep, find, isEqual, orderBy} from 'lodash';
+import {find} from 'lodash';
 import {TranslateService} from '@ngx-translate/core';
 import {HttpClient} from '@angular/common/http';
+import {Country} from './model/country';
+import {CountriesSearchCriteria} from './model/countries-search-criteria';
+import {CountriesSortCriteria} from './model/countries-sort-criteria';
+import {CountriesSearch} from './model/countries-search';
+import {CountriesSort} from './model/countries-sort';
+import {OrderByOption} from './model/orderby-option';
+import {ContinentOption} from './model/continent-option';
+import {CountriesSortDirection} from './model/countries-sort-direction';
 
 @Injectable()
 export class CountriesService {
@@ -21,41 +28,19 @@ export class CountriesService {
   private _countries: Country[] = [];
   private _currentCountry: Country;
 
-  private _emptyCriteria;
-  private _searchCriteria;
-  private _sortCriteria;
-
-  private _continentSelections = [
-    { name: 'africa', description: 'Africa' },
-    { name: 'america', description: 'Americas' },
-    { name: 'asia', description: 'Asia' },
-    { name: 'australia', description: 'Australia' },
-    { name: 'europe', description: 'Europe' },
-    { name: 'antarctica', description: 'Antarctica' },
-    { name: 'none', description: 'None' }
-  ];
-
-  private _orderByOptions = [
-    { name: 'name', description: 'Country Name', isRankDisplayed: false },
-    { name: 'alpha3Code', description: 'ISO Code', isRankDisplayed: false },
-    { name: 'region', description: 'Region', isRankDisplayed: false },
-    { name: 'subregion', description: 'Sub Region', isRankDisplayed: false },
-    { name: 'population', description: 'Population', isRankDisplayed: true },
-    { name: 'area', description: 'Area Size', isRankDisplayed: true },
-    { name: 'gini', description: 'Gini Index', isRankDisplayed: true },
-    { name: 'numericCode', description: 'Numeric Code', isRankDisplayed: false },
-  ];
+  private _search: CountriesSearch;
+  private _sort: CountriesSort;
 
   constructor(private http: HttpClient,
               private translate: TranslateService) {
 
-    this._emptyCriteria = new SearchCriteria();
-    this._searchCriteria = new SearchCriteria();
-    this._sortCriteria = new SortCriteria();
+    this._search = new CountriesSearch(translate);
+    this._sort = new CountriesSort();
   }
 
-  get continentSelections() {
-    return this._continentSelections;
+  get continentOptions(): ContinentOption[] {
+    // console.log(`OrderByOptions: ${this._search.continentOptions}`);
+    return this._search.continentOptions;
   }
 
   get countries(): Country[] {
@@ -66,16 +51,21 @@ export class CountriesService {
     return this._currentCountry;
   }
 
-  get orderByOptions() {
-    return this._orderByOptions;
+  get orderByOptions(): OrderByOption[] {
+    // console.log(`OrderByOptions: ${this._sort.orderByOptions}`);
+    return this._sort.orderByOptions;
   }
 
-  get searchCriteria(): SearchCriteria {
-    return this._searchCriteria;
+  get searchCriteria(): CountriesSearchCriteria {
+    return this._search.searchCriteria;
   }
 
-  get sortCriteria(): SortCriteria {
-    return this._sortCriteria;
+  get sortCriteria(): CountriesSortCriteria {
+    return this._sort.sortCriteria;
+  }
+
+  get sortDirections(): CountriesSortDirection[] {
+    return this._sort.sortDirections;
   }
 
   cleanup(): void {
@@ -107,10 +97,10 @@ export class CountriesService {
               country.translations['en'] = nameStore;
             }
             // prepare search field
-            country['searchField'] = this.prepareSearchField(country);
+            country['searchField'] = this._search.buildSearchField(country);
             return country;
           });
-          const sorted = this.sortCountries(data);
+          const sorted = this._sort.sort(data);
           this._countries = sorted;
           this.loadSubjects(sorted);
         }
@@ -135,87 +125,26 @@ export class CountriesService {
     return country;
   }
 
-  searchCountries(criteria: SearchCriteria) {
+  searchCountries(criteria?: CountriesSearchCriteria) {
 
-    this._searchCriteria = criteria;
-    const results = this.findCountries();
-    if (results) {
-      const count = results.length || 0;
-      this.filteredCountriesCount$.next(count);
-    } else {
-      this.filteredCountriesCount$.next(0);
-    }
-    this.filteredCountries$.next(this.sortCountries(results));
+    const result = this._search.search(this._countries, criteria);
+    this.filteredCountriesCount$.next(result.count);
+    this.filteredCountries$.next(this._sort.sort(result.countries));
+    this._search.searchCriteria = criteria;
   }
 
   selectCountry(country: Country) {
     this._currentCountry = country;
   }
 
-  setSearchAndSortCriteria(searchCriteria: SearchCriteria, sortCriteria: SortCriteria) {
-    this._sortCriteria = sortCriteria;
+  setSearchAndSortCriteria(searchCriteria: CountriesSearchCriteria, sortCriteria: CountriesSortCriteria) {
+    this._sort.sortCriteria = sortCriteria;
     this.searchCountries(searchCriteria);
-  }
-
-  private fillContinentsForSearch(): string[] {
-    const continents = [];
-    if (this._searchCriteria.africa) {
-      continents.push('africa');
-    }
-    if (this._searchCriteria.america) {
-      continents.push('americas');
-    }
-    if (this._searchCriteria.asia) {
-      continents.push('asia');
-    }
-    if (this._searchCriteria.australia) {
-      continents.push('oceania');
-    }
-    if (this._searchCriteria.antarctica) {
-      continents.push('polar');
-    }
-    if (this._searchCriteria.europe) {
-      continents.push('europe');
-    }
-    if (this._searchCriteria.none) {
-      continents.push('none');
-    }
-    return continents;
-  }
-
-  private findCountries() {
-
-    if (isEqual(this._searchCriteria, this._emptyCriteria)) {
-      return this._countries;
-    }
-
-    const continents = this.fillContinentsForSearch();
-
-    let results = this._countries;
-    if (continents.length > 0) {
-      results = results.filter(country => continents.includes(country.region.toLocaleLowerCase()));
-    } else {
-      results = [];
-    }
-
-    if (this._searchCriteria.term !== '') {
-      results = results.filter(country => country['searchField'].includes(this._searchCriteria.term));
-    }
-    return results;
   }
 
   private findCountry(code): Country {
 
     return find(this._countries, country => country.alpha3Code === code);
-  }
-
-  private readCountries(): Observable<Country[]> {
-
-    return this.http.get<Country[]>('./assets/data/countries.json')
-      .map(response => response.map(item => {
-        item.region = item.region || 'None';
-        return item;
-      }));
   }
 
   private loadCountries(): Observable<Country[]> {
@@ -232,49 +161,6 @@ export class CountriesService {
     this.filteredCountries$.next(data);
     this.filteredCountriesCount$.next(data.length);
     this._currentCountry = (data[0]);
-  }
-
-  private prepareSearchField(country: Country): string {
-
-    const language = this.translate.currentLang;
-    if (language === 'en') {
-      return (country.alpha3Code + ' ' + country.name + ' ' + country.nativeName).toLocaleLowerCase();
-    }
-
-    // prepare search field
-    let searchField = (country.name + ' ' + country.nativeName).toLocaleLowerCase();
-
-    const special = this.replaceSpecialCharacters(searchField);
-
-    if (searchField.localeCompare(special)) {
-      searchField = searchField + ' ' + special;
-    }
-    return country.alpha3Code.toLocaleLowerCase() + ' ' + searchField;
-  }
-
-  private prepareSortField(field: any): any {
-
-    let value = field;
-
-    if (typeof field === 'string') {
-      value = this.replaceSpecialCharacters(value);
-    }
-
-    return value;
-  }
-
-  private replaceSpecialCharacters(value: string): string {
-    value = value.toLocaleLowerCase();
-    value = value.replace(/\u00e4/g, 'ae');
-    value = value.replace(/\u00f6/g, 'oe');
-    value = value.replace(/\u00fc/g, 'ue');
-    value = value.replace(/\u00df/g, 'ss');
-    value = value.replace(/\u00e5/g, 'a');
-    return value;
-  }
-
-  private sortCountries(data: Country[]): Country[] {
-    return orderBy(data, [ item => this.prepareSortField(item[this._sortCriteria.fieldName])], [this._sortCriteria.direction]);
   }
 
 }

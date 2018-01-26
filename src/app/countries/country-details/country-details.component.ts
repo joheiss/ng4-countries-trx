@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-import {Country} from '../country';
+import {Country} from '../model/country';
 import {ActivatedRoute, Router} from '@angular/router';
 import { Location} from '@angular/common';
 import {CountriesService} from '../countries.service';

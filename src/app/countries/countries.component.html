@@ -35,13 +35,14 @@
 
   <jo-countries-filter-popup *ngIf="isFilterPopupVisible"
                              [filter]="searchCriteria"
-                             [continents]="continentSelections"
+                             [continents]="continentOptions"
                              (closed)="onFilterClosed()"
                              class="popup">
   </jo-countries-filter-popup>
   <jo-countries-sort-popup *ngIf="isSortPopupVisible"
                            [sort]="sortCriteria"
                            [options]="orderByOptions"
+                           [directions]="sortDirections"
                            (closed)="onSortClosed()"
                            class="popup">
   </jo-countries-sort-popup>

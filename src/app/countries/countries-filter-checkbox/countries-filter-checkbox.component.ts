@@ -9,7 +9,7 @@ import {Component, EventEmitter, Input, Output, ViewEncapsulation} from '@angula
 export class CountriesFilterCheckboxComponent {
 
   @Input('name') name: string;
-  @Input('description') description: string;
+  @Input('displayName') displayName: string;
   @Input('checked') checked: boolean;
   @Output('changed') changed = new EventEmitter();
 
